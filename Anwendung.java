@@ -69,7 +69,7 @@ public class Anwendung
      * Behandlungsbedarfs)auf die entsprechendfarbige Warteliste zu setzen.
      * @param Farbe, p
      */
-    public void Priorisieren(String Farbe, Patient p)
+    private void Priorisieren(String Farbe, Patient p)
     {
         if(Farbe == "rot")
         {
@@ -146,7 +146,7 @@ public class Anwendung
                         else
                         {
                             Zimmer1 = WLgruen.get(0);
-                            String id = Zimmer1.getPatientenID();
+                            int id = Zimmer1.getPatientenID();
                             PatientLoeschen(id);
                             Zimmer1.setStatus(NeuerStatus);
                             Zimmer1.UhrzeitSpeichern();
@@ -157,7 +157,7 @@ public class Anwendung
                     else
                     {
                         Zimmer1 = WLgelb.get(0);
-                        String id = Zimmer1.getPatientenID();
+                        int id = Zimmer1.getPatientenID();
                         PatientLoeschen(id);
                         Zimmer1.setStatus(NeuerStatus);
                         Zimmer1.UhrzeitSpeichern();
@@ -168,7 +168,7 @@ public class Anwendung
                 else
                 {
                     Zimmer1 = WLrot.get(0);
-                    String id = Zimmer1.getPatientenID();
+                    int id = Zimmer1.getPatientenID();
                     PatientLoeschen(id);
                     Zimmer1.setStatus(NeuerStatus);
                     Zimmer1.UhrzeitSpeichern();
@@ -188,7 +188,7 @@ public class Anwendung
                         else
                         {
                             Zimmer2 = WLgruen.get(0);
-                            String id = Zimmer2.getPatientenID();
+                            int id = Zimmer2.getPatientenID();
                             PatientLoeschen(id);
                             Zimmer2.setStatus(NeuerStatus);
                             Zimmer2.UhrzeitSpeichern();
@@ -199,7 +199,7 @@ public class Anwendung
                     else
                     {
                         Zimmer2 = WLgelb.get(0);
-                        String id = Zimmer2.getPatientenID();
+                        int id = Zimmer2.getPatientenID();
                         PatientLoeschen(id);
                         Zimmer2.setStatus(NeuerStatus);
                         Zimmer2.UhrzeitSpeichern();
@@ -210,7 +210,7 @@ public class Anwendung
                 else
                 {
                     Zimmer2 = WLrot.get(0);
-                    String id = Zimmer2.getPatientenID();
+                    int id = Zimmer2.getPatientenID();
                     PatientLoeschen(id);
                     Zimmer2.setStatus(NeuerStatus);
                     Zimmer2.UhrzeitSpeichern();
@@ -224,19 +224,31 @@ public class Anwendung
             {
                 if(Zimmer1 == null)
                 {
-                  if(WLrot.size() == 0)
-                {
-                    if(WLgelb.size() == 0)
+                    if(WLrot.size() == 0)
                     {
-                        if(WLgruen.size() == 0)
+                        if(WLgelb.size() == 0)
                         {
-                            s1 = "Wartelisten sind leer.";
-                            return s1;
+                            if(WLgruen.size() == 0)
+                            {
+                                s1 = "Wartelisten sind leer.";
+                                return s1;
+                            }
+                            else
+                            {
+                                Zimmer1 = WLgruen.get(0);
+                                int id = Zimmer1.getPatientenID();
+                                PatientLoeschen(id);
+                                Zimmer1.setStatus(NeuerStatus);
+                                Zimmer1.UhrzeitSpeichern();
+                                s1 = Zimmer1.getVorname();
+                                s1 = s1 + " " + Zimmer1.getName();
+                                return s1;
+                            }
                         }
                         else
                         {
-                            Zimmer1 = WLgruen.get(0);
-                            String id = Zimmer1.getPatientenID();
+                            Zimmer1 = WLgelb.get(0);
+                            int id = Zimmer1.getPatientenID();
                             PatientLoeschen(id);
                             Zimmer1.setStatus(NeuerStatus);
                             Zimmer1.UhrzeitSpeichern();
@@ -247,43 +259,43 @@ public class Anwendung
                     }
                     else
                     {
-                        Zimmer1 = WLgelb.get(0);
-                        String id = Zimmer1.getPatientenID();
+                        Zimmer1 = WLrot.get(0);
+                        int id = Zimmer1.getPatientenID();
                         PatientLoeschen(id);
                         Zimmer1.setStatus(NeuerStatus);
                         Zimmer1.UhrzeitSpeichern();
                         s1 = Zimmer1.getVorname();
                         s1 = s1 + " " + Zimmer1.getName();
                         return s1;
-                    }
+                    } 
                 }
                 else
                 {
-                    Zimmer1 = WLrot.get(0);
-                    String id = Zimmer1.getPatientenID();
-                    PatientLoeschen(id);
-                    Zimmer1.setStatus(NeuerStatus);
-                    Zimmer1.UhrzeitSpeichern();
-                    s1 = Zimmer1.getVorname();
-                    s1 = s1 + " " + Zimmer1.getName();
-                    return s1;
-                } 
-            }
-            else
-            {
-                if(WLrot.size() == 0)
-                {
-                    if(WLgelb.size() == 0)
+                    if(WLrot.size() == 0)
                     {
-                        if(WLgruen.size() == 0)
+                        if(WLgelb.size() == 0)
                         {
-                            s1 = "Wartelisten sind leer.";
-                            return s1;
+                            if(WLgruen.size() == 0)
+                            {
+                                s1 = "Wartelisten sind leer.";
+                                return s1;
+                            }
+                            else
+                            {
+                                Zimmer2 = WLgruen.get(0);
+                                int id = Zimmer2.getPatientenID();
+                                PatientLoeschen(id);
+                                Zimmer2.setStatus(NeuerStatus);
+                                Zimmer2.UhrzeitSpeichern();
+                                s1 = Zimmer2.getVorname();
+                                s1 = s1 + " " + Zimmer2.getName();
+                                return s1;
+                            }
                         }
                         else
                         {
-                            Zimmer2 = WLgruen.get(0);
-                            String id = Zimmer2.getPatientenID();
+                            Zimmer2 = WLgelb.get(0);
+                            int id = Zimmer2.getPatientenID();
                             PatientLoeschen(id);
                             Zimmer2.setStatus(NeuerStatus);
                             Zimmer2.UhrzeitSpeichern();
@@ -294,86 +306,121 @@ public class Anwendung
                     }
                     else
                     {
-                        Zimmer2 = WLgelb.get(0);
-                        String id = Zimmer2.getPatientenID();
+                        Zimmer2 = WLrot.get(0);
+                        int id = Zimmer2.getPatientenID();
                         PatientLoeschen(id);
                         Zimmer2.setStatus(NeuerStatus);
                         Zimmer2.UhrzeitSpeichern();
                         s1 = Zimmer2.getVorname();
                         s1 = s1 + " " + Zimmer2.getName();
-                        return s1;
+                        return s2;
                     }
-                }
-                else
-                {
-                    Zimmer2 = WLrot.get(0);
-                    String id = Zimmer2.getPatientenID();
-                    PatientLoeschen(id);
-                    Zimmer2.setStatus(NeuerStatus);
-                    Zimmer2.UhrzeitSpeichern();
-                    s1 = Zimmer2.getVorname();
-                    s1 = s1 + " " + Zimmer2.getName();
-                    return s2;
                 }
             }
         }
     }
+
+    /**
+     * Mit dieser Methode kann man über die PatientenID eine Patienten aus der 
+     * Warteliste löschen
+     * @param NeueID
+     */
+    public void PatientLoeschen(int NeueID)
+    {
+        int eID = NeueID;
+        boolean gefunden = false;
+        int i = 0;
+        while(i <= WLrot.size() && !gefunden)
+        {
+            Patient p = WLrot.get(i);
+            int s = p.getPatientenID();
+            if(eID == s)
+            {
+                gefunden = true;
+                WLrot.remove(i);
+            }
+            else
+            {
+                i++;
+            }
+        }
+        i = 0;
+        while(i <= WLgelb.size() && !gefunden)
+        {
+            Patient p = WLgelb.get(i);
+            int s = p.getPatientenID();
+            if(eID == s)
+            {
+                gefunden = true;
+                WLgelb.remove(i);
+            }
+            else
+            {
+                i++;
+            }
+        }
+        i = 0;
+        while(i <= WLgruen.size() && !gefunden)
+        {
+            Patient p = WLgruen.get(i);
+            int s = p.getPatientenID();
+            if(eID == s)
+            {
+                gefunden = true;
+                WLgruen.remove(i);
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+
+    /**
+     * Diese Methode nimmt einen Patienten auf und ruft abhängig von der Farbe (Dringlichkeit des Behandlungsbedarfs) den 
+     * passenden Konstruktor der Klasse Patient auf
+     * @param Name, Vorname, Farbe, Infektionsverdacht
+     */
+    public void PatientAufnehmen(String Name, String Vorname, String Farbe, boolean Infektionsverdacht)
+    {
+        if(Farbe == "rot")
+        {
+            Patient p = new Patient(Name, Vorname, Infektionsverdacht);
+        }
+        else
+        {
+            Patient p = new Patient(Name, Vorname, Infektionsverdacht, Farbe);
+        }
+    }
+
+    /**
+     * Diese Methode ruft den Anamnesbogen eines Patienten auf, um diesen auszufüllen.
+     * @param p, Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung
+     */
+    public void AnamnesebogenAufrufen(Patient p, String Anamnese, int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)
+    {
+        p.AnamnesebogenAusfuellen(Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung);
+    }
+
+    /**
+     * Diese Methode ruft das Datenblatt eines Patienten auf, um dieses auszufüllen.
+     * @param p, Geschlecht, Gebdatum, Gebort, Strasse, Hausnr, PLZ, Ort, Tel, Vererkrankungen, Medikamente, Allergien, Aufnahmediagnose, Hausarzt
+     */
+    public void DatenblattAufrufen(Patient p,char Geschlecht, double Gebdatum, String Gebort, String Strasse, int Hausnr, int PLZ, String Ort, int Tel, String Vorerkrankungen, String Medikamente, String Allergien, String Aufnahmediagnose, String Hausarzt)
+    {
+        p.DatenblattAusfuellen(Geschlecht, Gebdatum, Gebort, Strasse, Hausnr, PLZ, Ort, Tel, Vererkrankungen, Medikamente, Allergien, Aufnahmediagnose, Hausarzt);
+    }
+    
+    /**
+     * Die Methode Entlassung ändert den Status des Patienten ab, anschließend wird der Patient auf die Langzeitliste gesetzt 
+     * die Uhrzeit der Entlassung dokumentiert.
+     * @param PatID, NeuerStatus, p
+     */
+    public void Entlassung(int PatID, String NeuerStatus, Patient p)
+    {
+      p.SetStatus(NeuerStatus);
+      Langzeitliste.add(p);
+      p.ZPEntlassung = p.UhrzeitSpeichern();
+    }
 }
 
-/**
- * Mit dieser Methode kann man über die PatientenID eine Patienten aus der 
- * Warteliste löschen
- * @param NeueID
- */
-public void PatientLoeschen(String NeueID)
-{
-  String eID = NeueID;
-  boolean gefunden = false;
-  int i = 0;
-  while(i <= WLrot.size() && !gefunden)
-  {
-      Patient p = WLrot.get(i);
-      String s = p.getPatientenID();
-      if(eID == s)
-      {
-          gefunden = true;
-          WLrot.remove(i);
-        }
-        else
-        {
-            i++;
-        }
-    }
-    i = 0;
-    while(i <= WLgelb.size() && !gefunden)
-  {
-      Patient p = WLgelb.get(i);
-      String s = p.getPatientenID();
-      if(eID == s)
-      {
-          gefunden = true;
-          WLgelb.remove(i);
-        }
-        else
-        {
-            i++;
-        }
-    }
-    i = 0;
-    while(i <= WLgruen.size() && !gefunden)
-  {
-      Patient p = WLgruen.get(i);
-      String s = p.getPatientenID();
-      if(eID == s)
-      {
-          gefunden = true;
-          WLgruen.remove(i);
-        }
-        else
-        {
-            i++;
-        }
-    }
-}
-    
-}
