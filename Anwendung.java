@@ -377,20 +377,15 @@ public class Anwendung
     }
 
     /**
-     * Diese Methode nimmt einen Patienten auf und ruft abhängig von der Farbe (Dringlichkeit des Behandlungsbedarfs) den 
-     * passenden Konstruktor der Klasse Patient auf
+     * Diese Methode nimmt einen Patienten auf und ruft den Konstruktor der Klasse Patient auf, dem er Name, Vorname, 
+     * Infektionsverdacht und Farbe übergibt.
      * @param Name, Vorname, Farbe, Infektionsverdacht
      */
     public void PatientAufnehmen(String Name, String Vorname, String Farbe, boolean Infektionsverdacht)
     {
-        if(Farbe == "rot")
-        {
-            Patient p = new Patient(Name, Vorname, Infektionsverdacht);
-        }
-        else
-        {
-            Patient p = new Patient(Name, Vorname, Infektionsverdacht, Farbe);
-        }
+
+        Patient p = new Patient(Name, Vorname, Infektionsverdacht, Farbe);
+
     }
 
     /**
@@ -410,7 +405,7 @@ public class Anwendung
     {
         p.DatenblattAusfuellen(Geschlecht, Gebdatum, Gebort, Strasse, Hausnr, PLZ, Ort, Tel, Vererkrankungen, Medikamente, Allergien, Aufnahmediagnose, Hausarzt);
     }
-    
+
     /**
      * Die Methode Entlassung ändert den Status des Patienten ab, anschließend wird der Patient auf die Langzeitliste gesetzt 
      * die Uhrzeit der Entlassung dokumentiert.
@@ -418,9 +413,78 @@ public class Anwendung
      */
     public void Entlassung(int PatID, String NeuerStatus, Patient p)
     {
-      p.SetStatus(NeuerStatus);
-      Langzeitliste.add(p);
-      p.ZPEntlassung = p.UhrzeitSpeichern();
+        p.SetStatus(NeuerStatus);
+        Langzeitliste.add(p);
+        p.ZPEntlassung = p.UhrzeitSpeichern();
+    }
+
+    /**
+     * Mit der Methode PatientSuchenNamen wird über einen eingegeben Nachnamen der dazugehörige Patient in allen
+     * Wartelisten und der Langzeitliste gesucht.
+     * @param SuchName
+     * @return p (gefundener Patient)
+     */
+    public Patient PatientSuchenNamen(String SuchName)
+    {
+        String x = SuchName;
+        boolean gefunden = false;
+        int i = 0;
+        while(i <= WLrot.size() && !gefunden)
+        {
+            Patient p = WLrot.get(i);
+            gefunden = x.equals(p.getName(i));
+            if(gefunden == true)
+            {
+                return p;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        i = 0;
+        while(i <= WLgelb.size() && !gefunden)
+        {
+            Patient p = WLgelb.get(i);
+            gefunden = x.equals(p.getName(i));
+            if(gefunden == true)
+            {
+                return p;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        i = 0;
+        while(i <= WLgruen.size() && !gefunden)
+        {
+            Patient p = WLgruen.get(i);
+            gefunden = x.equals(p.getName(i));
+            if(gefunden == true)
+            {
+                return p;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        i = 0;
+        while(i <= Langzeitliste.size() && !gefunden)
+        {
+            Patient p = Langzeitliste.get(i);
+            gefunden = x.equals(p.getName(i));
+            if(gefunden == true)
+            {
+                return p;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        return null;
     }
 }
 
