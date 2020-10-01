@@ -29,32 +29,6 @@ public abstract class Formular
     public abstract void Loeschen();
     
     public abstract String SpeichernAlsText();
-    
-    /**
-     * übernimmt die PatientenID aus Patient
-     */
-    public void setPatientenID (int PatientenID)   
-    {
-        this.PatientenID = PatientenID;
-    }
-    
-    /**
-     * übernimmt den Namen aus Patient
-     */
-    public void setName (String Name)   
-    {
-        // tragen Sie hier den Code ein
-        
-    }
-    
-    /**
-     * übernimmt den Vornamen aus Patient
-     */
-    public void setVorname (String Vorname)   
-    {
-        // tragen Sie hier den Code ein
-        
-    }
         
     public int getPatientenID ()
     {

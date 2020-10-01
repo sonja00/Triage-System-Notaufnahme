@@ -2,16 +2,18 @@
  * Abstrakte Klasse Mensch
  * 
  * @author (Felix Baur, Elena Drewenskus)
- * @version (30.09.20)
+ * @version (01.10.20)
  */
 public abstract class Person
 {
-    
+
     protected String Name;
     protected String Vorname;
 
-    abstract public void Ausdrucken();
-    
+    public String Ausdrucken()
+    {
+        return "Name:" + Name + "/n" + "Vorname:" + Vorname + "/n" ;
+    }
 
     public void setName(String Name)
     {
