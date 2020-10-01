@@ -4,6 +4,7 @@
  * @author (Julia Gröhl, Marion Bäuerlein)
  * @version 1 (01.10.2020)
  */
+
 public abstract class Formular
 {
     protected int PatientenID;
@@ -11,12 +12,30 @@ public abstract class Formular
     protected String Vorname;
 
     /**
+     * Konstruktor
+     */
+    public Formular (Patient Patient)   
+    {
+        this.PatientenID = Patient.getPatientenID();
+        this.Name = Patient.getName();
+        this.Vorname = Patient.getVorname();
+    }
+    
+    public String Ausgabe()
+    {
+        return "PatientenID: " + Integer.toString(PatientenID) + " Name: " + Name + " Vorname: " + Vorname;
+    }
+    
+    public abstract void Loeschen();
+    
+    public abstract String SpeichernAlsText();
+    
+    /**
      * übernimmt die PatientenID aus Patient
      */
-    public void setVorname (String Vorname)   
+    public void setPatientenID (int PatientenID)   
     {
-        // tragen Sie hier den Code ein
-        
+        this.PatientenID = PatientenID;
     }
     
     /**
@@ -37,17 +56,17 @@ public abstract class Formular
         
     }
         
-    public String getPatientenID ()
+    public int getPatientenID ()
     {
         return PatientenID;
     }
          
-    public Sting getName ()
+    public String getName ()
     {
         return Name;
     }
        
-    public Sting getVorname ()
+    public String getVorname ()
     {
         return Vorname;
     }
