@@ -46,10 +46,10 @@ public class Patient extends Person
         System.out.println("");
         if (Infektionsverdacht == true)
 
-        System.out.println("Infektionsverdacht:         JA");
+            System.out.println("Infektionsverdacht:         JA");
 
         else
-        System.out.println("Infektionsverdacht:         NEIN");
+            System.out.println("Infektionsverdacht:         NEIN");
         System.out.println("");
         System.out.println("Zeitpunkt der Aufnahme:     "+ZPAufnahme);
         System.out.println("");
@@ -59,7 +59,7 @@ public class Patient extends Person
 
     }
 
-    public void setStatusAendern(String Status)
+    public void setStatus(String Status)
     {
         this.Status = Status;
     }
@@ -78,15 +78,25 @@ public class Patient extends Person
     {
         ZPEntlassung = UhrzeitSpeichern();
     }
-    
+
     public void setInfektionsverdacht(boolean Infektionsverdacht)
     {
         this.Infektionsverdacht = Infektionsverdacht;
     }
 
-    public String getStatusAendern()
+    public void setFarbe(String Farbe)
+    {
+        this.Farbe=Farbe;
+    }
+
+    public String getStatus()
     {
         return Status;
+    }
+
+    public String getPatientenID()
+    {
+        return PatientenID;
     }
 
     public String getZPAufnahme()
@@ -103,9 +113,15 @@ public class Patient extends Person
     {
         return ZPEntlassung;
     }
-    
+
     public boolean getInfektionsverdacht()
     {
         return Infektionsverdacht;
     }
+
+    public String getFarbe()
+    {
+        return Farbe;
+    }
+
 }
