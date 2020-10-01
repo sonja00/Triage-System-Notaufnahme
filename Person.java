@@ -11,6 +11,7 @@ public abstract class Person
     protected String Vorname;
 
     abstract public void Ausdrucken();
+    
 
     public void setName(String Name)
     {

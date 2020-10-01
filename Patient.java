@@ -13,12 +13,23 @@ public class Patient extends Person
 {
 
     private String Status = "Kein Status vorhanden";
-    private String PatientenID;
+    private int PatientenID;
     private boolean Infektionsverdacht;
     private String ZPAufnahme;
     private String ZPAufruf;
     private String ZPEntlassung;
     private String Farbe;
+    
+    public Patient(String Farbe)
+    {
+      if (Farbe == "gelb" ^ "gruen")
+      {
+        
+      }
+      else
+      
+    }
+    
 
     public String UhrzeitSpeichern()
     {
@@ -31,7 +42,8 @@ public class Patient extends Person
     {
         SimpleDateFormat formatter= new SimpleDateFormat("yyMMddHHmm");
         Date date = new Date(System.currentTimeMillis());
-        PatientenID = formatter.format(date);  
+        PatientenID = Integer.parseInt(formatter.format(date)); 
+        
     }
 
     public void Ausdrucken()
@@ -94,7 +106,7 @@ public class Patient extends Person
         return Status;
     }
 
-    public String getPatientenID()
+    public int getPatientenID()
     {
         return PatientenID;
     }
