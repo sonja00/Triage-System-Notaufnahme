@@ -1,9 +1,6 @@
-
 /**
- * 
- * 
  * @author (Felix Baur, Elena Drewenskus) 
- * @version (30.09.2020)
+ * @version (01.10.2020)
  */
 
 import java.text.SimpleDateFormat;
@@ -15,21 +12,13 @@ public class Patient extends Person
     private String Status = "Kein Status vorhanden";
     private int PatientenID;
     private boolean Infektionsverdacht;
+    private boolean Test = false;
     private String ZPAufnahme;
     private String ZPAufruf;
     private String ZPEntlassung;
     private String Farbe;
-    
-    public Patient(String Farbe)
-    {
-      if (Farbe == "gelb" ^ "gruen")
-      {
-        
-      }
-      else
-      
-    }
-    
+    private Anamnesebogen Bogen;
+    private Datenblatt Daten;
 
     public String UhrzeitSpeichern()
     {
@@ -43,32 +32,40 @@ public class Patient extends Person
         SimpleDateFormat formatter= new SimpleDateFormat("yyMMddHHmm");
         Date date = new Date(System.currentTimeMillis());
         PatientenID = Integer.parseInt(formatter.format(date)); 
-        
     }
 
-    public void Ausdrucken()
+    public String Ausdrucken()
     {
-        System.out.println("Name:                       "+Name);
-        System.out.println("");
-        System.out.println("Vorname:                    "+Vorname);
-        System.out.println("");
-        System.out.println("Status:                     "+Status);
-        System.out.println("");
-        System.out.println("PatientenID:                "+PatientenID);
-        System.out.println("");
+        String Ausgabe = super.Ausdrucken() + "/n" + "Status: " + Status + "/n" + "PatientenID: " + PatientenID + "/n" + "Zeitpunkt der Aufnahme: " + ZPAufnahme + "/n" 
+            + "Zeitpunkt des Aufrufs: " + ZPAufruf + "/n" + "Zeitpunkt der Entlassung: " + ZPEntlassung;
+
         if (Infektionsverdacht == true)
 
-            System.out.println("Infektionsverdacht:         JA");
+            return Ausgabe + "/n" + "Infektionsverdacht: JA";
 
         else
-            System.out.println("Infektionsverdacht:         NEIN");
-        System.out.println("");
-        System.out.println("Zeitpunkt der Aufnahme:     "+ZPAufnahme);
-        System.out.println("");
-        System.out.println("Zeitpunkt des Aufrufs:      "+ZPAufruf);
-        System.out.println("");
-        System.out.println("Zeitpunkt der Entlassung:   "+ZPEntlassung);
+            return Ausgabe + "/n" + "Infektionsverdacht: NEIN";
+    }
 
+    public void Test()
+    {
+        if (Test == true)
+        {
+            System.out.println("Name:                       "+Name);
+            System.out.println("");
+            System.out.println("Vorname:                    "+Vorname);
+            System.out.println("");
+            System.out.println("Status:                     "+Status);
+            System.out.println("");
+            System.out.println("PatientenID:                "+PatientenID);
+            System.out.println(""); 
+            System.out.println("");
+            System.out.println("Zeitpunkt der Aufnahme:     "+ZPAufnahme);
+            System.out.println("");
+            System.out.println("Zeitpunkt des Aufrufs:      "+ZPAufruf);
+            System.out.println("");
+            System.out.println("Zeitpunkt der Entlassung:   "+ZPEntlassung);
+        }
     }
 
     public void setStatus(String Status)

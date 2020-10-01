@@ -1,14 +1,13 @@
 /**
- * Beschreiben Sie hier die Klasse Arzt.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author (Felix Baur, Elena Drewenskus) 
+ * @version (01.10.2020)
  */
 public class Arzt extends Person
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
     private int TelNummer;
     private int AngestelltenID;
+    private boolean Test = false;
 
     /**
      * Ein Beispiel einer Methode - ersetzen Sie diesen Kommentar mit Ihrem eigenen
@@ -16,15 +15,24 @@ public class Arzt extends Person
      * @param  y    ein Beispielparameter für eine Methode
      * @return        die Summe aus x und y
      */
-    public void Ausdrucken()
+    public String Ausdrucken()
     {
-        System.out.println("Name:"+Name);
-        System.out.println("");
-        System.out.println("Vorname:"+Vorname);
-        System.out.println("");
-        System.out.println("Telefonnummer:"+TelNummer);
-        System.out.println("");
-        System.out.println("AngestelltenID:"+AngestelltenID);
+        String Ausgabe = super.Ausdrucken();
+        return Ausgabe + "/n" + "Telefonnummer: " + TelNummer + "/n" + "AngestelltenID: " + AngestelltenID;
+    }
+
+    public void Test()
+    {
+        if(Test == true)
+        {
+            System.out.println("Name:"+Name);
+            System.out.println("");
+            System.out.println("Vorname:"+Vorname);
+            System.out.println("");
+            System.out.println("Telefonnummer:"+TelNummer);
+            System.out.println("");
+            System.out.println("AngestelltenID:"+AngestelltenID);
+        }
     }
 
     public void setTelNummer(int TelNummer)
@@ -36,8 +44,6 @@ public class Arzt extends Person
     {
         this.AngestelltenID=AngestelltenID;
     }
-    
-    
 
     public int getTelNummer()
     {

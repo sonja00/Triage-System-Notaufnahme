@@ -14,7 +14,7 @@ public abstract class Formular
      * übernimmt die PatientenID aus Patient
      */
     public void setVorname (String Vorname)   
-    {
+    {;
         // tragen Sie hier den Code ein
         
     }
