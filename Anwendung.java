@@ -101,8 +101,9 @@ public class Anwendung
         int x = 0;
         for(Patient e: Langzeitliste)
         {
-            p = e.getPatientenID();
-            p = p + " , " + e.getVorname();
+            int y = e.getPatientenID();
+            String r = Integer.toString(y);
+            p = r + " , " + e.getVorname();
             p = p + " " + e.getName();
             p = p + " , " + e.getStatus();
             liste[x] = p;
@@ -381,11 +382,50 @@ public class Anwendung
      * Infektionsverdacht und Farbe übergibt.
      * @param Name, Vorname, Farbe, Infektionsverdacht
      */
-    public void PatientAufnehmen(String Name, String Vorname, String Farbe, boolean Infektionsverdacht)
+    public void PatientAufnehmen(String Name, String Vorname, String Farbe, boolean Infektionsverdacht,
+     char Geschlecht, int Jahr, int Monat,
+    int Tag, String Gebort, String Strasse, int Hausnummer, int PLZ, String Ort,
+    int Telefon, String Vorerkrankungen, String Medikamente, String Allergien, 
+    String Aufnahmediagnose, String Hausarzt)
     {
 
         Patient p = new Patient(Name, Vorname, Infektionsverdacht, Farbe);
+        int PatientenID = p.IDErstellung();
+        if (Farbe.equals("gelb"))
+        {
+            Anamnesebogen Bogen = new Anamnesebogen(Name,Vorname, PatientenID);
+            Datenblatt Daten = new Datenblatt(Name, Vorname, PatientenID, Geschlecht, Jahr, Monat, Tag, Gebort,Strasse, Hausnummer, PLZ, Ort, Telefon, Vorerkrankungen, Medikamente, Allergien,
+            Aufnahmediagnose, Hausarzt);
+            WLgelb.add(p);
+            p.setStatus("Warten");
 
+        }
+        else if (Farbe.equals("gruen"))
+        {
+            Datenblatt Daten = new Datenblatt(Name, Vorname, PatientenID, Geschlecht, Jahr, Monat, Tag, Gebort,Strasse, Hausnummer, PLZ, Ort, Telefon, Vorerkrankungen, Medikamente, Allergien,
+            Aufnahmediagnose, Hausarzt);
+            Anamnesebogen Bogen = new Anamnesebogen(Name, Vorname, PatientenID);
+            WLgruen.add(p);
+            p.setStatus("Warten");
+        }
+        else 
+        {
+            String newLine = System.getProperty("line.separator");
+            System.out.println("Keine gülige Priorität!"+ newLine +"Gülte Prioritäten sind: rot, gelb, gruen");
+            //JOptionPane.showMessageDialog(null,"Keine gülige Priorität!"+ newLine +"Gülte Prioritäten sind: rot, gelb, gruen");
+        }
+
+    }
+    
+    /**
+     * Diese Methode nimmt einen Notfallpatienten auf und ruft den passenden Konstruktor auf, dem er Name, Vorname und Infektionsverdacht 
+     * übergibt.
+     * @param Name, Vorname, Infektionsverdacht
+     */
+    public void NotfallPatientAufnehmen(String Name, String Vorname, boolean Infektionsverdacht)
+    {
+        Patient p = new Patient(Name, Vorname, Infektionsverdacht);
+        WLrot.add(p);
     }
 
     /**
@@ -394,16 +434,19 @@ public class Anwendung
      */
     public void AnamnesebogenAufrufen(Patient p, String Anamnese, int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)
     {
-        p.AnamnesebogenAusfuellen(Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung);
+        p.AnamnesebogenAufrufen(Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung);
     }
 
     /**
      * Diese Methode ruft das Datenblatt eines Patienten auf, um dieses auszufüllen.
      * @param p, Geschlecht, Gebdatum, Gebort, Strasse, Hausnr, PLZ, Ort, Tel, Vererkrankungen, Medikamente, Allergien, Aufnahmediagnose, Hausarzt
      */
-    public void DatenblattAufrufen(Patient p,char Geschlecht, double Gebdatum, String Gebort, String Strasse, int Hausnr, int PLZ, String Ort, int Tel, String Vorerkrankungen, String Medikamente, String Allergien, String Aufnahmediagnose, String Hausarzt)
+    public void DatenblattAufrufen(Patient p, char Geschlecht, int Jahr, int Monat,
+    int Tag, String Gebort, String Strasse, int Hausnummer, int PLZ, String Ort,
+    int Telefon, String Vorerkrankungen, String Medikamente, String Allergien, 
+    String Aufnahmediagnose, String Hausarzt)
     {
-        p.DatenblattAusfuellen(Geschlecht, Gebdatum, Gebort, Strasse, Hausnr, PLZ, Ort, Tel, Vererkrankungen, Medikamente, Allergien, Aufnahmediagnose, Hausarzt);
+        p.DatenblattAufrufen(Geschlecht, Jahr, Monat, Tag, Gebort,Strasse, Hausnummer, PLZ, Ort, Telefon, Vorerkrankungen, Medikamente, Allergien, Aufnahmediagnose, Hausarzt);
     }
 
     /**
@@ -413,9 +456,10 @@ public class Anwendung
      */
     public void Entlassung(int PatID, String NeuerStatus, Patient p)
     {
-        p.SetStatus(NeuerStatus);
+        p.setStatus(NeuerStatus);
         Langzeitliste.add(p);
-        p.ZPEntlassung = p.UhrzeitSpeichern();
+        p.setZPEntlassung();
+        
     }
 
     /**
@@ -432,7 +476,7 @@ public class Anwendung
         while(i <= WLrot.size() && !gefunden)
         {
             Patient p = WLrot.get(i);
-            gefunden = x.equals(p.getName(i));
+            gefunden = x.equals(p.getName());
             if(gefunden == true)
             {
                 return p;
@@ -446,7 +490,7 @@ public class Anwendung
         while(i <= WLgelb.size() && !gefunden)
         {
             Patient p = WLgelb.get(i);
-            gefunden = x.equals(p.getName(i));
+            gefunden = x.equals(p.getName());
             if(gefunden == true)
             {
                 return p;
@@ -460,7 +504,7 @@ public class Anwendung
         while(i <= WLgruen.size() && !gefunden)
         {
             Patient p = WLgruen.get(i);
-            gefunden = x.equals(p.getName(i));
+            gefunden = x.equals(p.getName());
             if(gefunden == true)
             {
                 return p;
@@ -474,9 +518,126 @@ public class Anwendung
         while(i <= Langzeitliste.size() && !gefunden)
         {
             Patient p = Langzeitliste.get(i);
-            gefunden = x.equals(p.getName(i));
+            gefunden = x.equals(p.getName());
             if(gefunden == true)
             {
+                return p;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        return null;
+    }
+    
+    /**
+     * Die Methode gibt alle Patienten, die auf einer Warteliste stehen aus.
+     * @return patienten
+     */
+    public String[] ListenAusgeben()
+    {
+        String p = "";
+        int i = WLrot.size();
+        i = i + WLgelb.size();
+        i = i + WLgruen.size();
+        String[] patienten = new String[i];
+        int x = 0;
+        for(Patient e: WLrot)
+        {
+            p = e.getVorname();
+            p = p + " " + e.getName();
+            int v = e.getPatientenID();
+            String y = Integer.toString(v);
+            p = p + ", " + y;
+            patienten[x] = p;
+            x++;
+        }
+        for(Patient e: WLgelb)
+        {
+            p = e.getVorname();
+            p = p + " " + e.getName();
+            int v = e.getPatientenID();
+            String y = Integer.toString(v);
+            p = p + ", " + y;
+            patienten[x] = p;
+            x++;
+        }
+        for(Patient e: WLgruen)
+        {
+            p = e.getVorname();
+            p = p + " " + e.getName();
+            int v = e.getPatientenID();
+            String y = Integer.toString(v);
+            p = p + ", " + y;
+            patienten[x] = p;
+            x++;
+        }
+        return patienten;
+    }
+    
+    /**
+     * Mit diese Methode kann ein Patient über seine ID in den Listen gesucht werden.
+     * @param SuchID
+     * @return p (gefundenen Patienten)
+     */
+    public Patient PatientSuchenID(int SuchID)
+    {
+        int eID = SuchID;
+        boolean gefunden = false;
+        int i = 0;
+        while(i<WLrot.size() && !gefunden)
+        {
+            Patient p = WLrot.get(i);
+            int s = p.getPatientenID();
+            if(eID == s)
+            {
+                gefunden = true;
+                return p;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        i = 0;
+        while(i<WLgelb.size() && !gefunden)
+        {
+            Patient p = WLgelb.get(i);
+            int s = p.getPatientenID();
+            if(eID == s)
+            {
+                gefunden = true;
+                return p;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        i = 0;
+        while(i<WLgruen.size() && !gefunden)
+        {
+            Patient p = WLgruen.get(i);
+            int s = p.getPatientenID();
+            if(eID == s)
+            {
+                gefunden = true;
+                return p;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        i = 0;
+        while(i<Langzeitliste.size() && !gefunden)
+        {
+            Patient p = Langzeitliste.get(i);
+            int s = p.getPatientenID();
+            if(eID == s)
+            {
+                gefunden = true;
                 return p;
             }
             else

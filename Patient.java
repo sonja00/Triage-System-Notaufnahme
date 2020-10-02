@@ -17,8 +17,29 @@ public class Patient extends Person
     private String ZPAufruf;
     private String ZPEntlassung;
     private String Farbe;
-    private Anamnesebogen Bogen;
-    private Datenblatt Daten;
+
+    private Anamnesebogen AnBogen;
+    private Datenblatt Datenbl;
+    //rot
+    public Patient(String Name, String Vorname, boolean Infektionsverdacht)
+    {
+        setName(Name);
+        setVorname(Vorname);
+        setInfektionsverdacht(Infektionsverdacht);
+        setFarbe("rot");
+        PatientenID = IDErstellung();
+        Datenbl = new Datenblatt (Name, Vorname,PatientenID);
+        AnBogen = new Anamnesebogen(Name,Vorname, PatientenID);
+        setStatus("Warten");
+    }
+    //gruen/gelb
+    public Patient(String nName, String nVorname, boolean nInfektionsverdacht, String nFarbe)
+    {  
+        setName(nName);
+        setVorname(nVorname);
+        setInfektionsverdacht(nInfektionsverdacht);
+        setFarbe(nFarbe);
+    }
 
     public String UhrzeitSpeichern()
     {
@@ -27,11 +48,12 @@ public class Patient extends Person
         return formatter.format(date);
     }
 
-    public void IDErstellung()
+    public int IDErstellung()
     {
         SimpleDateFormat formatter= new SimpleDateFormat("yyMMddHHmm");
         Date date = new Date(System.currentTimeMillis());
-        PatientenID = Integer.parseInt(formatter.format(date)); 
+        int PatientenID = Integer.parseInt(formatter.format(date));
+        return PatientenID;
     }
 
     public String Ausdrucken()
@@ -131,6 +153,24 @@ public class Patient extends Person
     public String getFarbe()
     {
         return Farbe;
+    }
+
+    /**
+     * Diese Methode ruft das Datenblatt eines Patienten auf, um dieses auszufüllen.
+     * @param p, Geschlecht, Gebdatum, Gebort, Strasse, Hausnr, PLZ, Ort, Tel, Vererkrankungen, Medikamente, Allergien, Aufnahmediagnose, Hausarzt
+     */
+    public void DatenblattAufrufen(char Geschlecht, int Jahr, int Monat, int Tag, String Gebort, String Strasse, int Hausnummer, int PLZ, String Ort, int Telefon, String Vorerkrankungen, String Medikamente, String Allergien, String Aufnahmediagnose, String Hausarzt)
+    {
+        Datenbl.DatenblattAusfuellen(Geschlecht, Jahr, Monat, Tag, Gebort,Strasse, Hausnummer, PLZ, Ort, Telefon, Vorerkrankungen, Medikamente, Allergien,Aufnahmediagnose, Hausarzt);
+    }
+
+    /**
+     * Diese Methode ruft den Anamnesbogen eines Patienten auf, um diesen auszufüllen.
+     * @param p, Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung
+     */
+    public void AnamnesebogenAufrufen(String Anamnese, int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)
+    {
+        AnBogen.AnamnesebogenAusfuellen(Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung);
     }
 
 }

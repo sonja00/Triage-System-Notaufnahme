@@ -24,15 +24,15 @@ public class Datenblatt extends Formular
     private String Allergien;
     private String Aufnahmediagnose;
     private String Hausarzt;
-    
+
     /**
      * Standardkonstruktor
      */
-    public Datenblatt (Patient Patient)
+    public Datenblatt (String Name, String Vorname, int ID)
     {
-        super(Patient);
+        super(Name, Vorname, ID);
         Geschlecht= ' ';
-        Gebdatum= new Date(1995, 7, 26);
+        Gebdatum= new Date(0000,00,00);
         Gebort= "";
         Strasse= "";
         Hausnummer= 0;
@@ -46,8 +46,48 @@ public class Datenblatt extends Formular
         Hausarzt= "";
     }
 
-    
-     public void Loeschen()
+    public Datenblatt(String Name, String Vorname, int PatientenID, char Geschlecht, int Jahr, int Monat,
+    int Tag, String Gebort, String Strasse, int Hausnummer, int PLZ, String Ort,
+    int Telefon, String Vorerkrankungen, String Medikamente, String Allergien, 
+    String Aufnahmediagnose, String Hausarzt)
+    {
+        super(Name, Vorname, PatientenID);
+        this.Geschlecht = Geschlecht;
+        this.Gebdatum = new Date (Jahr, Monat, Tag);
+        this.Gebort = Gebort;
+        this.Strasse = Strasse;
+        this.Hausnummer = Hausnummer;
+        this.PLZ = PLZ;
+        this.Ort = Ort;
+        this.Telefon = Telefon;
+        this.Vorerkrankungen = Vorerkrankungen;
+        this.Medikamente = Medikamente;
+        this.Allergien = Allergien;
+        this.Aufnahmediagnose = Aufnahmediagnose;
+        this.Hausarzt = Hausarzt;
+    }
+
+    public void DatenblattAusfuellen( char Geschlecht, int Jahr, int Monat,
+    int Tag, String Gebort, String Strasse, int Hausnummer, int PLZ, String Ort,
+    int Telefon, String Vorerkrankungen, String Medikamente, String Allergien, 
+    String Aufnahmediagnose, String Hausarzt)
+    {
+        this.Geschlecht = Geschlecht;
+        this.Gebdatum = new Date (Jahr, Monat, Tag);
+        this.Gebort = Gebort;
+        this.Strasse = Strasse;
+        this.Hausnummer = Hausnummer;
+        this.PLZ = PLZ;
+        this.Ort = Ort;
+        this.Telefon = Telefon;
+        this.Vorerkrankungen = Vorerkrankungen;
+        this.Medikamente = Medikamente;
+        this.Allergien = Allergien;
+        this.Aufnahmediagnose = Aufnahmediagnose;
+        this.Hausarzt = Hausarzt;
+    }
+
+    public void Loeschen()
     { 
         Geschlecht= ' ';
         Gebdatum= null;
@@ -63,10 +103,10 @@ public class Datenblatt extends Formular
         Aufnahmediagnose= "";
         Hausarzt= "";
     }
-    
-     public String Ausgabe()
-     {
-        
+
+    public String Ausgabe()
+    {
+
         String rückgabe = "";
         rückgabe += super.Ausgabe() + "\n\n";
         rückgabe += "Geschlecht:\n" + String.valueOf(Geschlecht) + "\n\n";
@@ -82,11 +122,10 @@ public class Datenblatt extends Formular
         rückgabe += "Allergien:\n" + Allergien + "\n\n";
         rückgabe += "Aufnahmediagnose:\n" + Aufnahmediagnose + "\n\n";
         rückgabe += "Hausarzt:\n" + Hausarzt + "\n\n";
-                
+
         return rückgabe;
     }
-   
-    
+
     public String SpeichernAlsText()
     {
         new File("./" + Name + "_" + Vorname+".txt");
@@ -97,149 +136,147 @@ public class Datenblatt extends Formular
         {
             return "Fehler beim Speichern " + e.toString();
         }
-        
+
         return "Speichern Erfolgreich";
-        
+
     }
-    
-    
+
     public long getAlter() 
     {
         long diffInMillies = Gebdatum.getDate() - new Date(System.currentTimeMillis()).getDate();
         return TimeUnit.DAYS.convert(diffInMillies, TimeUnit.DAYS);
     }
-    
-    
+
     /**
      * set-Methode
      */
     public void setGeschlecht(char Geschlecht)
     {
-       this.Geschlecht=Geschlecht;
+        this.Geschlecht=Geschlecht;
     }
-    
+
     public void setGebdatum(Date Gebdatum)
     {
-       this.Gebdatum=Gebdatum;
+        this.Gebdatum=Gebdatum;
     }
-    
+
     public void setGebort(String Gebort)
     {
-       this.Gebort=Gebort;
+        this.Gebort=Gebort;
     }
-    
+
     public void setStrasse(String Strasse)
     {
-       this.Strasse=Strasse;
+        this.Strasse=Strasse;
     }
-    
+
     public void setHausnummer(int Hausnummer)
     {
-       this.Hausnummer=Hausnummer;
+        this.Hausnummer=Hausnummer;
     }
-    
+
     public void setPLZ(int PLZ)
     {
-       this.PLZ=PLZ;
+        this.PLZ=PLZ;
     }
-    
+
     public void setOrt(String Ort)
     {
-       this.Ort=Ort;
+        this.Ort=Ort;
     }
-    
+
     public void setTelefon(int Telefon)
     {
-       this.Telefon=Telefon;
+        this.Telefon=Telefon;
     }
-    
+
     public void setVorerkrankungen(String Vorerkrankungen)
     {
-       this.Vorerkrankungen=Vorerkrankungen;
+        this.Vorerkrankungen=Vorerkrankungen;
     }
-    
+
     public void setMedikamente(String Medikamente)
     {
-       this.Medikamente=Medikamente;
+        this.Medikamente=Medikamente;
     }
-    
+
     public void setAllergien(String Allergien)
     {
-       this.Allergien=Allergien;
+        this.Allergien=Allergien;
     }
-    
+
     public void setAufnahmediagnose(String Aufnahmediagnose)
     {
-       this.Aufnahmediagnose=Aufnahmediagnose;
+        this.Aufnahmediagnose=Aufnahmediagnose;
     }
-    
+
     public void setHausarzt(String Hausarzt)
     {
-       this.Hausarzt=Hausarzt;
+        this.Hausarzt=Hausarzt;
     }
 
     public char getGeschlecht()
     {
-       return Geschlecht;
+        return Geschlecht;
     }
-    
+
     public Date getGebdatum()
     {
-       return Gebdatum;
+        return Gebdatum;
     }
-   
+
     public String getGebort()
     {
-       return Gebort;
+        return Gebort;
     }
 
     public String getStrasse()
     {
-       return Strasse;
+        return Strasse;
     }
-   
+
     public int getHausnummer()
     {
-       return Hausnummer;
+        return Hausnummer;
     }
-    
+
     public int getPLZ()
     {
-       return PLZ;
+        return PLZ;
     }
-    
+
     public String getOrt()
     {
-       return Ort;
+        return Ort;
     }
-    
+
     public int getTelefon()
     {
-       return Telefon;
+        return Telefon;
     }
-    
+
     public String getVorerkrankungen()
     {
-       return Vorerkrankungen;
+        return Vorerkrankungen;
     }
-    
+
     public String getMedikamente()
     {
-       return Medikamente;
+        return Medikamente;
     }
-    
+
     public String getAllergien()
     {
-       return Allergien;
+        return Allergien;
     }
-    
+
     public String getAufnahmediagnose()
     {
-       return Aufnahmediagnose;
+        return Aufnahmediagnose;
     }
-    
+
     public String getHausarzt()
     {
-       return Hausarzt;
+        return Hausarzt;
     }
 }

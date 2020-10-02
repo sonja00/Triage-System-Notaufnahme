@@ -22,9 +22,12 @@ private String Weiterbehandlung;
     /**
      * Der Konstruktor setzt alle Werte auf 0 bzw. "" und ruft den Superkonstruktor auf
      */
-    public Anamnesebogen (Patient Patient)
+    public Anamnesebogen (String Name, String Vorname, int ID)
     {
-       super(Patient);
+       //this.Name = Name;
+       //this.Vorname = Vorname;
+       //PatientenID = 0;
+       super(Name, Vorname,ID);
        Anamnese = "";
        Blutdruck = 0;
        Puls = 0;
@@ -33,7 +36,17 @@ private String Weiterbehandlung;
        Blutzucker = 0;
        Weiterbehandlung = "";
     }
-
+public void AnamnesebogenAusfuellen(String Anamnese, int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)
+{
+   this.Anamnese = Anamnese;
+   this.Blutdruck = Blutdruck;
+   this.Puls =Puls;
+   this.Temperatur = Temperatur;
+   this.SpO2 = SpO2;
+   this. Blutzucker = Blutzucker;
+   this.Weiterbehandlung = Weiterbehandlung;
+    
+}
     public void Loeschen()
     { 
         Anamnese = "";

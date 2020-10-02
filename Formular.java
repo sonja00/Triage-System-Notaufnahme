@@ -14,11 +14,14 @@ public abstract class Formular
     /**
      * Konstruktor
      */
-    public Formular (Patient Patient)   
+    public Formular (String Name, String Vorname, int id)   
     {
-        this.PatientenID = Patient.getPatientenID();
-        this.Name = Patient.getName();
-        this.Vorname = Patient.getVorname();
+        //this.PatientenID = Patient.getPatientenID();
+        //this.Name = Patient.getName();
+        //this.Vorname = Patient.getVorname();
+        PatientenID = id;
+        this.Name = Name;
+        this.Vorname = Vorname;
     }
     
     public String Ausgabe()
