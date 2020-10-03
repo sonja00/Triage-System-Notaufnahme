@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 import java.io.File;
 import java.io.PrintWriter;
@@ -61,19 +62,7 @@ public class Datenblatt extends Formular
     String Aufnahmediagnose, String Hausarzt)
     {
         super(Name, Vorname, PatientenID);
-        this.Geschlecht = Geschlecht;
-        this.Gebdatum = new Date (Jahr, Monat, Tag);
-        this.Gebort = Gebort;
-        this.Strasse = Strasse;
-        this.Hausnummer = Hausnummer;
-        this.PLZ = PLZ;
-        this.Ort = Ort;
-        this.Telefon = Telefon;
-        this.Vorerkrankungen = Vorerkrankungen;
-        this.Medikamente = Medikamente;
-        this.Allergien = Allergien;
-        this.Aufnahmediagnose = Aufnahmediagnose;
-        this.Hausarzt = Hausarzt;
+        DatenblattAusfuellen(Geschlecht, Jahr, Monat,Tag, Gebort, Strasse, Hausnummer, PLZ, Ort,Telefon, Vorerkrankungen, Medikamente, Allergien, Aufnahmediagnose, Hausarzt);
     }
 
     
@@ -176,10 +165,21 @@ public class Datenblatt extends Formular
     /**
      * Exeption
      */
-    public long getAlter() 
+    public int getAlter() 
     {
-        long diffInMillies = Gebdatum.getDate() - new Date(System.currentTimeMillis()).getDate();
-        return TimeUnit.DAYS.convert(diffInMillies, TimeUnit.DAYS);
+        
+        Date now = Calendar.getInstance().getTime();
+                
+        int diff = now.getYear() - this.Gebdatum.getYear();
+        if (this.Gebdatum.getMonth() > now.getMonth() || 
+            (this.Gebdatum.getMonth() == now.getMonth() && this.Gebdatum.getDate() > now.getDate())) {
+            diff--;
+        }
+        
+        return diff;
+        
+        //long diffInMillies = Gebdatum.getDate() - Calendar.getInstance().getTime().getDate();
+        //return TimeUnit.DAYS.convert(diffInMillies, TimeUnit.DAYS);
     }
 
     /**
@@ -195,9 +195,27 @@ public class Datenblatt extends Formular
      * setMethode um dem Patienten ein Geburtsdatum zuzuweisen.
      * @param Gebdatum
      */
-    public void setGebdatum(Date Gebdatum)
+    public void setGebdatum(int Jahr, int Monat, int Tag)
     {
-        this.Gebdatum=Gebdatum;
+        //Datum generieren
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, Jahr);
+        cal.set(Calendar.MONTH, Monat - 1);
+        cal.set(Calendar.DAY_OF_MONTH, Tag);
+        Date dateRepresentation = cal.getTime();
+           
+        //Datum überprüfen
+        Date oldDate = this.Gebdatum;
+        this.Gebdatum=dateRepresentation;
+        if(this.getAlter() < 0)
+        {
+            //Wenn das Datum in der Zukunft liegt, Änderung rückgängig machen und Exception werfen 
+            this.Gebdatum = oldDate; 
+            throw new IllegalArgumentException("Geburtsdatum liegt in der Zukunft " + dateRepresentation.toGMTString());
+        }
+        
+        
+        
     }
 
     /**
