@@ -77,19 +77,19 @@ public class Datenblatt extends Formular
     int Telefon, String Vorerkrankungen, String Medikamente, String Allergien, 
     String Aufnahmediagnose, String Hausarzt)
     {
-        this.Geschlecht = Geschlecht;
-        this.Gebdatum = new Date (Jahr, Monat, Tag);
-        this.Gebort = Gebort;
-        this.Strasse = Strasse;
-        this.Hausnummer = Hausnummer;
-        this.PLZ = PLZ;
-        this.Ort = Ort;
-        this.Telefon = Telefon;
-        this.Vorerkrankungen = Vorerkrankungen;
-        this.Medikamente = Medikamente;
-        this.Allergien = Allergien;
-        this.Aufnahmediagnose = Aufnahmediagnose;
-        this.Hausarzt = Hausarzt;
+        this.setGeschlecht(Geschlecht);
+        this.setGebdatum(Jahr, Monat, Tag);
+        this.setGebort(Gebort);
+        this.setStrasse(Strasse);
+        this.setHausnummer(Hausnummer);
+        this.setPLZ(PLZ);
+        this.setOrt(Ort);
+        this.setTelefon(Telefon);
+        this.setVorerkrankungen(Vorerkrankungen);
+        this.setMedikamente(Medikamente);
+        this.setAllergien(Allergien);
+        this.setAufnahmediagnose(Aufnahmediagnose);
+        this.setHausarzt(Hausarzt);
     }
 
     /**
@@ -188,6 +188,9 @@ public class Datenblatt extends Formular
      */
     public void setGeschlecht(char Geschlecht)
     {
+        if(Geschlecht != 'm' && Geschlecht != 'w' && Geschlecht != 'd'){
+            throw new IllegalArgumentException("Geschlecht muss 'm', 'w' oder 'd' sein");
+        }
         this.Geschlecht=Geschlecht;
     }
 
