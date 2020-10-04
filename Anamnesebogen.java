@@ -114,47 +114,72 @@ public class Anamnesebogen extends Formular
     }
 
     /**
-     * setMethode um dem Patienten einen Blutdruck zuzuweisen.
+     * setMethode um dem Patienten einen Blutdruck zuzuweisen. Mit der Exception wird sichergestellt, dass kein Wert unter 0 eingegeben
+     * werden kann.
      * @param Blutdruck
      */
     public void setBlutdruck(int Blutdruck)
     {
+        if(Blutdruck < 0)
+        {
+            throw new IllegalArgumentException("Blutdruckwert nicht möglich!");
+        }
         this.Blutdruck=Blutdruck;
     }
 
     /**
-     * setMethode um dem Patienten einen Puls zuzuweisen.
+     * setMethode um dem Patienten einen Puls zuzuweisen.Mit der Exception wird sichergestellt, dass kein Wert unter 0 eingegeben
+     * werden kann.
      * @param Puls
      */
     public void setPuls(int Puls)
     {
+        if(Puls < 0)
+        {
+            throw new IllegalArgumentException("Pulswert nicht möglich!");
+        }
         this.Puls=Puls;
     }
 
     /**
-     * setMethode um dem Patienten eine Temperatur zuzuweisen.
+     * setMethode um dem Patienten eine Temperatur zuzuweisen.Mit der Exception wird sichergestellt, dass kein Wert unter 0 eingegeben
+     * werden kann.
      * @param Temperatur
      */
     public void setTemperatur(double Temperatur)
     {
+        if(Temperatur < 0)
+        {
+            throw new IllegalArgumentException("Temperatur nicht möglich!");
+        }
         this.Temperatur=Temperatur;
     }
 
     /**
-     * setMethode um dem Patienten eine Sauerstoffsättigung zuzuweisen.
+     * setMethode um dem Patienten eine Sauerstoffsättigung zuzuweisen.Mit der Exception wird sichergestellt, dass kein Wert unter 0 eingegeben
+     * werden kann.
      * @param SpO2
      */
     public void setSpO2(int SpO2)
     {
+        if(SpO2 < 0)
+        {
+            throw new IllegalArgumentException("Sauerstoffsättigung nicht möglich!");
+        }
         this.SpO2=SpO2;
     }
 
     /**
-     * setMethode um dem Patienten ein Blutzucker zuzuweisen.
+     * setMethode um dem Patienten ein Blutzucker zuzuweisen.Mit der Exception wird sichergestellt, dass kein Wert unter 0 eingegeben
+     * werden kann.
      * @param Blutzucker
      */
     public void setBlutzucker(int Blutzucker)
     {
+        if(Blutzucker < 0)
+        {
+            throw new IllegalArgumentException("Blutzuckerwert nicht möglich!");
+        }
         this.Blutzucker=Blutzucker;
     }
 

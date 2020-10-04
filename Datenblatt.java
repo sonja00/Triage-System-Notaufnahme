@@ -188,7 +188,8 @@ public class Datenblatt extends Formular
      */
     public void setGeschlecht(char Geschlecht)
     {
-        if(Geschlecht != 'm' && Geschlecht != 'w' && Geschlecht != 'd'){
+        if(Geschlecht != 'm' && Geschlecht != 'w' && Geschlecht != 'd')
+        {
             throw new IllegalArgumentException("Geschlecht muss 'm', 'w' oder 'd' sein");
         }
         this.Geschlecht=Geschlecht;
