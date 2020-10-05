@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 import java.io.File;
 import java.io.PrintWriter;
 /**
- * Beschreiben Sie hier die Klasse Datenblatt.
+ * Die Klasse Datenblatt ist eine Subklasse von Formular.
  * 
  * @author (Julia Gröhl, Marion Bäuerlein) 
  * @version 1 (01.10.2020)
@@ -67,7 +67,7 @@ public class Datenblatt extends Formular
 
     
     /**
-     * Methode um das Datenblatt auszufüllen.
+     * Die Methode DatenblattAusfuellen ruft alle setMethoden auf um allen Eigenschaften Werte zuzuweisen.
      * @param  Geschlecht, Jahr, Monat,Tag, Gebort,Strasse, Hausnummer, PLZ, Ort,Telefon, Vorerkrankungen,Medikamente, 
      * Allergien, Aufnahmediagnose, Hausarzt
     
@@ -116,7 +116,7 @@ public class Datenblatt extends Formular
 
     /**
      * Die Methode Ausgabe ruft den Methode Ausgabe aus der Klasse Formular auf und gibt alle Eigenschaften als 
-     * Liste aus.
+     * String aus.
      * @return rückgabe
      */
     public String Ausgabe()
@@ -163,7 +163,10 @@ public class Datenblatt extends Formular
     }
 
     /**
-     * Exeption
+     * Die Methode getAlter berechnet aus dem Geburtsdatum des Patienten sein Alter, indem das Geburtsdatum 
+     * vom aktuellen Datum abgezogen wird. Es wird auch überprüft ob Monat und Tag nach dem aktuellen Monat und Tag
+     * liegen und zieht dann ggf. ein Jahr ab, damit das Alter stimmt.
+     * @return diff
      */
     public int getAlter() 
     {
@@ -177,13 +180,12 @@ public class Datenblatt extends Formular
         }
         
         return diff;
-        
-        //long diffInMillies = Gebdatum.getDate() - Calendar.getInstance().getTime().getDate();
-        //return TimeUnit.DAYS.convert(diffInMillies, TimeUnit.DAYS);
+            
     }
 
     /**
-     * setMethode um dem Patienten ein Geschlecht zuzuweisen.
+     * setMethode um dem Patienten ein Geschlecht zuzuweisen. Das Geschlecht wird nur dann gesetzt wenn die 
+     * Eingabe m,w oder d erfolgt. Andernfalls wird eine Exeption mit der Fehlermeldung geworfen.
      * @param Geschlecht
      */
     public void setGeschlecht(char Geschlecht)
@@ -196,7 +198,8 @@ public class Datenblatt extends Formular
     }
 
     /**
-     * setMethode um dem Patienten ein Geburtsdatum zuzuweisen.
+     * setMethode um dem Patienten ein Geburtsdatum zuzuweisen. Die Eingabe wird mit der Methode getAlter überprüft.
+     * Liegt das Geburtsdatum in der Zukunkt wird eine Exception geworfen die das ungültige Datum als String ausgibt.
      * @param Gebdatum
      */
     public void setGebdatum(int Jahr, int Monat, int Tag)
@@ -217,9 +220,8 @@ public class Datenblatt extends Formular
             this.Gebdatum = oldDate; 
             throw new IllegalArgumentException("Geburtsdatum liegt in der Zukunft " + dateRepresentation.toGMTString());
         }
-        
-        
-        
+                
+       
     }
 
     /**
