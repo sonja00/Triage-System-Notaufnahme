@@ -1,19 +1,20 @@
 /**
+ * Die Klasse Arzt ist eine Subklasse von Person und hat zwei zusätzliche Attribute. Diese sind die Telefonnummer (TelNummer) und die AngestelltenID.
+ * Zu diesen gibt es jeweils die Set- und Get-Methoden. Außerdem gibt es auch die Methode Ausdrucken() aus der Superklasse Person,
+ * die mit den zusätzlichen Attributen ergänzt wird.
+ * 
  * @author (Felix Baur, Elena Drewenskus) 
- * @version (01.10.2020)
+ * @version (05.10.2020)
  */
 public class Arzt extends Person
 {
-    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
     private int TelNummer;
     private int AngestelltenID;
     private boolean Test = false;
 
     /**
-     * Ein Beispiel einer Methode - ersetzen Sie diesen Kommentar mit Ihrem eigenen
-     * 
-     * @param  y    ein Beispielparameter für eine Methode
-     * @return        die Summe aus x und y
+     * Die Methode gibt die grundlegenden Informationen zum Arzt in einem String zurück.
+     * @return Name, Vorname, TelNummer, AngestelltenID
      */
     public String Ausdrucken()
     {
@@ -21,6 +22,9 @@ public class Arzt extends Person
         return Ausgabe + "/n" + "Telefonnummer: " + TelNummer + "/n" + "AngestelltenID: " + AngestelltenID;
     }
 
+    /**
+     * Eine Bildschirmausgabe zum Testen
+     */
     public void Test()
     {
         if(Test == true)
@@ -35,21 +39,37 @@ public class Arzt extends Person
         }
     }
 
+    /**
+     * Eine Set-Methode um die Telefonnummer des Arztes anzugeben.
+     * @param TelNummer
+     */
     public void setTelNummer(int TelNummer)
     {
         this.TelNummer=TelNummer;
     }
 
+    /**
+     * Eine Set-Methode um die AngestelltenID des Arztes anzugeben.
+     * @param AngestelltenID
+     */
     public void setAngestelltenID(int AngestelltenID)
     {
         this.AngestelltenID=AngestelltenID;
     }
 
+    /**
+     * Eine Get-Methode um die Telefonnummer des Arztes auszugeben.
+     * @return TelNummer
+     */
     public int getTelNummer()
     {
         return TelNummer;
     }
 
+    /**
+     * Eine Get-Methode um die AngestelltenID des Arztes auszugeben.
+     * @return AngestelltenID
+     */
     public int getAngestelltenID()
     {
         return AngestelltenID;
