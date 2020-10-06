@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 /**
- * Beschreiben Sie hier die Klasse Anwendung.
+ * Die Klasse Anwendung ist die Verwaltungsklasse, in der sämtlich Operationen,
+ * die für das Triagesystem in der Notaufnahem wichtig sind, aufgerufen
+ * werden können.
  * 
  * @author (Sonja Unglert, Elena Haas) 
- * @version (01.10.2020)
+ * @version (06.10.2020)
  */
 public class Anwendung
 {
@@ -16,7 +18,9 @@ public class Anwendung
 
     /**
      * Konstruktor der Klasse Anwendung, Initialisiert alle vier ArrayLists 
-     * und setzt beide Zimmer auf Null
+     * und setzt beide Zimmer auf Null. Da der Konstruktor ausschließlich zum 
+     * erzeugen der Listen dient, ist nur kein weiterer Konstruktor 
+     * von Nöten.
      */
     public Anwendung()
     {
@@ -29,10 +33,12 @@ public class Anwendung
     }
 
     /**
-     * Eine SetMethode um einen neuen Patienten auf Zimmer1 zuzuweisen
-     * @param p
+     * Eine SetMethode um einen neuen Patienten auf Zimmer1 zuzuweisen; Als private
+     * gesetzt, da diese Methode ausschließlich in einer anderen internen 
+     * Methode genutzt werden soll.
+     * @param p (zu zuweisender Patient)
      */
-    public void SetZimmer1(Patient p)
+    private void SetZimmer1(Patient p)
     {
         Zimmer1 = p;
     }
@@ -47,10 +53,12 @@ public class Anwendung
     }
 
     /**
-     * Eine SetMethode um einen neuen Patienten auf Zimmer2 zuzuweisen
+     * Eine SetMethode um einen neuen Patienten auf Zimmer2 zuzuweisen; Als private
+     * gesetzt, da diese Methode ausschließlich in einer anderen internen
+     * Methode genutzt werden soll.
      * @param p
      */
-    public void SetZimmer2(Patient p)
+    private void SetZimmer2(Patient p)
     {
         Zimmer2 = p;
     }
@@ -218,12 +226,12 @@ public class Anwendung
                     s2 = Zimmer2.getVorname();
                     s2 = s2 + " " + Zimmer2.getName();
                 }
-                s1 = s1 + ", " + s2;
+                s1 = s1 + " " + s2;
                 return s1;
             }
             else
             {
-                if(Zimmer1 == null)
+                if(Zimmer1 == null && Zimmer2 != null)
                 {
                     if(WLrot.size() == 0)
                     {
@@ -324,11 +332,17 @@ public class Anwendung
     /**
      * Mit dieser Methode kann man über die PatientenID eine Patienten aus der 
      * Warteliste löschen
-     * @param NeueID
+     * @param SuchID
      */
-    public void PatientLoeschen(int NeueID)
+    public void PatientLoeschen(int SuchID)
     {
-        int eID = NeueID;
+        if(SuchID<=999999999)
+        {
+          throw new IllegalArgumentException("Eingegebene ID ist nicht vollständig");  
+        }
+        else
+        {
+        int eID = SuchID;
         boolean gefunden = false;
         int i = 0;
         while(i <= WLrot.size() && !gefunden)
@@ -376,11 +390,12 @@ public class Anwendung
             }
         }
     }
+    }
 
     /**
      * Diese Methode nimmt einen Patienten auf und ruft den Konstruktor der Klasse Patient auf, dem er Name, Vorname, 
      * Infektionsverdacht und Farbe übergibt.
-     * @param Name, Vorname, Farbe, Infektionsverdacht
+     * @param Name, Vorname, Farbe, Infektionsverdacht, Geschlecht, Jahr, Monat, Tag, Gebort, Strasse, Hausnummer, Ort, Telefon, Vorerkrankungen, Medikamente, Allergien, Aufnahmediagnose, Hausarzt
      */
     public void PatientAufnehmen(String Name, String Vorname, String Farbe, boolean Infektionsverdacht,
      char Geschlecht, int Jahr, int Monat,
@@ -454,8 +469,9 @@ public class Anwendung
      * die Uhrzeit der Entlassung dokumentiert.
      * @param PatID, NeuerStatus, p
      */
-    public void Entlassung(int PatID, String NeuerStatus, Patient p)
+    public void Entlassung(int PatID, String NeuerStatus)
     {
+        Patient p = PatientSuchenID(PatID);
         p.setStatus(NeuerStatus);
         Langzeitliste.add(p);
         p.setZPEntlassung();
@@ -583,6 +599,12 @@ public class Anwendung
      */
     public Patient PatientSuchenID(int SuchID)
     {
+        if(SuchID<=999999999)
+        {
+        throw new IllegalArgumentException("ID ist nicht vollstänig");
+    }
+    else
+    {
         int eID = SuchID;
         boolean gefunden = false;
         int i = 0;
@@ -648,4 +670,4 @@ public class Anwendung
         return null;
     }
 }
-
+}
