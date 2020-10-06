@@ -126,11 +126,11 @@ public class Anwendung
      * Attribut des freien Zimmers gespeichert. Anschließend wird der Patient 
      * aus der Warteliste gelöscht, die Uhrzeit des Aufrufs gespeichert und
      * sein Status geändert. Der/Die Name(n) der Patienten werden ausgegeben.
-     * @param NeuerStatus
+     * 
      * @return s1 (Name des Patienten)
      * 
      */
-    public String PatientenAufruf(String NeuerStatus)
+    public String PatientenAufruf()
     {
         String s1 = "";
         String s2 = "";
@@ -157,8 +157,8 @@ public class Anwendung
                             Zimmer1 = WLgruen.get(0);
                             int id = Zimmer1.getPatientenID();
                             PatientLoeschen(id);
-                            Zimmer1.setStatus(NeuerStatus);
-                            Zimmer1.UhrzeitSpeichern();
+                            Zimmer1.setStatus("In Behandlungszimmer 1");
+                            Zimmer1.setZPAufruf();
                             s1 = Zimmer1.getVorname();
                             s1 = s1 + " " + Zimmer1.getName();
                         }
@@ -168,8 +168,8 @@ public class Anwendung
                         Zimmer1 = WLgelb.get(0);
                         int id = Zimmer1.getPatientenID();
                         PatientLoeschen(id);
-                        Zimmer1.setStatus(NeuerStatus);
-                        Zimmer1.UhrzeitSpeichern();
+                        Zimmer1.setStatus("In Behandlungszimmer 1");
+                        Zimmer1.setZPAufruf();
                         s1 = Zimmer1.getVorname();
                         s1 = s1 + " " + Zimmer1.getName();
                     }
@@ -179,8 +179,8 @@ public class Anwendung
                     Zimmer1 = WLrot.get(0);
                     int id = Zimmer1.getPatientenID();
                     PatientLoeschen(id);
-                    Zimmer1.setStatus(NeuerStatus);
-                    Zimmer1.UhrzeitSpeichern();
+                    Zimmer1.setStatus("In Behandlungszimmer 1");
+                    Zimmer1.setZPAufruf();
                     s1 = Zimmer1.getVorname();
                     s1 = s1 + " " + Zimmer1.getName();
                 }
@@ -199,8 +199,8 @@ public class Anwendung
                             Zimmer2 = WLgruen.get(0);
                             int id = Zimmer2.getPatientenID();
                             PatientLoeschen(id);
-                            Zimmer2.setStatus(NeuerStatus);
-                            Zimmer2.UhrzeitSpeichern();
+                            Zimmer2.setStatus("In Behandlungszimmer 2");
+                            Zimmer2.setZPAufruf();
                             s2 = Zimmer2.getVorname();
                             s2 = s2 + " " + Zimmer2.getName();
                         }
@@ -210,8 +210,8 @@ public class Anwendung
                         Zimmer2 = WLgelb.get(0);
                         int id = Zimmer2.getPatientenID();
                         PatientLoeschen(id);
-                        Zimmer2.setStatus(NeuerStatus);
-                        Zimmer2.UhrzeitSpeichern();
+                        Zimmer2.setStatus("In Behandlungszimmer 2");
+                        Zimmer2.setZPAufruf();
                         s2 = Zimmer2.getVorname();
                         s2 = s2 + " " + Zimmer2.getName();
                     }
@@ -221,8 +221,8 @@ public class Anwendung
                     Zimmer2 = WLrot.get(0);
                     int id = Zimmer2.getPatientenID();
                     PatientLoeschen(id);
-                    Zimmer2.setStatus(NeuerStatus);
-                    Zimmer2.UhrzeitSpeichern();
+                    Zimmer2.setStatus("In Behandlungszimmer 2");
+                    Zimmer2.setZPAufruf();
                     s2 = Zimmer2.getVorname();
                     s2 = s2 + " " + Zimmer2.getName();
                 }
@@ -247,8 +247,8 @@ public class Anwendung
                                 Zimmer1 = WLgruen.get(0);
                                 int id = Zimmer1.getPatientenID();
                                 PatientLoeschen(id);
-                                Zimmer1.setStatus(NeuerStatus);
-                                Zimmer1.UhrzeitSpeichern();
+                                Zimmer1.setStatus("In Behandlungszimmer 1");
+                                Zimmer1.setZPAufruf();
                                 s1 = Zimmer1.getVorname();
                                 s1 = s1 + " " + Zimmer1.getName();
                                 return s1;
@@ -259,8 +259,8 @@ public class Anwendung
                             Zimmer1 = WLgelb.get(0);
                             int id = Zimmer1.getPatientenID();
                             PatientLoeschen(id);
-                            Zimmer1.setStatus(NeuerStatus);
-                            Zimmer1.UhrzeitSpeichern();
+                            Zimmer1.setStatus("In Behandlungszimmer 1");
+                            Zimmer1.setZPAufruf();
                             s1 = Zimmer1.getVorname();
                             s1 = s1 + " " + Zimmer1.getName();
                             return s1;
@@ -271,8 +271,8 @@ public class Anwendung
                         Zimmer1 = WLrot.get(0);
                         int id = Zimmer1.getPatientenID();
                         PatientLoeschen(id);
-                        Zimmer1.setStatus(NeuerStatus);
-                        Zimmer1.UhrzeitSpeichern();
+                        Zimmer1.setStatus("In Behandlungszimmer 1");
+                        Zimmer1.setZPAufruf();
                         s1 = Zimmer1.getVorname();
                         s1 = s1 + " " + Zimmer1.getName();
                         return s1;
@@ -294,8 +294,8 @@ public class Anwendung
                                 Zimmer2 = WLgruen.get(0);
                                 int id = Zimmer2.getPatientenID();
                                 PatientLoeschen(id);
-                                Zimmer2.setStatus(NeuerStatus);
-                                Zimmer2.UhrzeitSpeichern();
+                                Zimmer2.setStatus("In Behandlungszimmer 2");
+                                Zimmer2.setZPAufruf();
                                 s1 = Zimmer2.getVorname();
                                 s1 = s1 + " " + Zimmer2.getName();
                                 return s1;
@@ -306,8 +306,8 @@ public class Anwendung
                             Zimmer2 = WLgelb.get(0);
                             int id = Zimmer2.getPatientenID();
                             PatientLoeschen(id);
-                            Zimmer2.setStatus(NeuerStatus);
-                            Zimmer2.UhrzeitSpeichern();
+                            Zimmer2.setStatus("In Behandlungszimmer 2");
+                            Zimmer2.setZPAufruf();
                             s1 = Zimmer2.getVorname();
                             s1 = s1 + " " + Zimmer2.getName();
                             return s1;
@@ -318,18 +318,18 @@ public class Anwendung
                         Zimmer2 = WLrot.get(0);
                         int id = Zimmer2.getPatientenID();
                         PatientLoeschen(id);
-                        Zimmer2.setStatus(NeuerStatus);
-                        Zimmer2.UhrzeitSpeichern();
+                        Zimmer2.setStatus("In Behandlungszimmer 2");
+                        Zimmer2.setZPAufruf();
                         s1 = Zimmer2.getVorname();
                         s1 = s1 + " " + Zimmer2.getName();
-                        return s2;
+                        return s1;
                     }
                 }
             }
         }
     }
 
-    /**
+    /** 
      * Mit dieser Methode kann man über die PatientenID eine Patienten aus der 
      * Warteliste löschen
      * @param SuchID
@@ -338,58 +338,58 @@ public class Anwendung
     {
         if(SuchID<=999999999)
         {
-          throw new IllegalArgumentException("Eingegebene ID ist nicht vollständig");  
+            throw new IllegalArgumentException("Eingegebene ID ist nicht vollständig");  
         }
         else
         {
-        int eID = SuchID;
-        boolean gefunden = false;
-        int i = 0;
-        while(i <= WLrot.size() && !gefunden)
-        {
-            Patient p = WLrot.get(i);
-            int s = p.getPatientenID();
-            if(eID == s)
+            int eID = SuchID;
+            boolean gefunden = false;
+            int i = 0;
+            while(i <= WLrot.size() && !gefunden)
             {
-                gefunden = true;
-                WLrot.remove(i);
+                Patient p = WLrot.get(i);
+                int s = p.getPatientenID();
+                if(eID == s)
+                {
+                    gefunden = true;
+                    WLrot.remove(i);
+                }
+                else
+                {
+                    i++;
+                }
             }
-            else
+            i = 0;
+            while(i <= WLgelb.size() && !gefunden)
             {
-                i++;
+                Patient p = WLgelb.get(i);
+                int s = p.getPatientenID();
+                if(eID == s)
+                {
+                    gefunden = true;
+                    WLgelb.remove(i);
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            i = 0;
+            while(i <= WLgruen.size() && !gefunden)
+            {
+                Patient p = WLgruen.get(i);
+                int s = p.getPatientenID();
+                if(eID == s)
+                {
+                    gefunden = true;
+                    WLgruen.remove(i);
+                }
+                else
+                {
+                    i++;
+                }
             }
         }
-        i = 0;
-        while(i <= WLgelb.size() && !gefunden)
-        {
-            Patient p = WLgelb.get(i);
-            int s = p.getPatientenID();
-            if(eID == s)
-            {
-                gefunden = true;
-                WLgelb.remove(i);
-            }
-            else
-            {
-                i++;
-            }
-        }
-        i = 0;
-        while(i <= WLgruen.size() && !gefunden)
-        {
-            Patient p = WLgruen.get(i);
-            int s = p.getPatientenID();
-            if(eID == s)
-            {
-                gefunden = true;
-                WLgruen.remove(i);
-            }
-            else
-            {
-                i++;
-            }
-        }
-    }
     }
 
     /**
@@ -398,19 +398,20 @@ public class Anwendung
      * @param Name, Vorname, Farbe, Infektionsverdacht, Geschlecht, Jahr, Monat, Tag, Gebort, Strasse, Hausnummer, Ort, Telefon, Vorerkrankungen, Medikamente, Allergien, Aufnahmediagnose, Hausarzt
      */
     public void PatientAufnehmen(String Name, String Vorname, String Farbe, boolean Infektionsverdacht,
-     char Geschlecht, int Jahr, int Monat,
+    char Geschlecht, int Jahr, int Monat,
     int Tag, String Gebort, String Strasse, int Hausnummer, int PLZ, String Ort,
     int Telefon, String Vorerkrankungen, String Medikamente, String Allergien, 
     String Aufnahmediagnose, String Hausarzt)
     {
 
         Patient p = new Patient(Name, Vorname, Infektionsverdacht, Farbe);
+        p.setZPAufnahme();
         int PatientenID = p.IDErstellung();
         if (Farbe.equals("gelb"))
         {
             Anamnesebogen Bogen = new Anamnesebogen(Name,Vorname, PatientenID);
             Datenblatt Daten = new Datenblatt(Name, Vorname, PatientenID, Geschlecht, Jahr, Monat, Tag, Gebort,Strasse, Hausnummer, PLZ, Ort, Telefon, Vorerkrankungen, Medikamente, Allergien,
-            Aufnahmediagnose, Hausarzt);
+                    Aufnahmediagnose, Hausarzt);
             WLgelb.add(p);
             p.setStatus("Warten");
 
@@ -418,20 +419,19 @@ public class Anwendung
         else if (Farbe.equals("gruen"))
         {
             Datenblatt Daten = new Datenblatt(Name, Vorname, PatientenID, Geschlecht, Jahr, Monat, Tag, Gebort,Strasse, Hausnummer, PLZ, Ort, Telefon, Vorerkrankungen, Medikamente, Allergien,
-            Aufnahmediagnose, Hausarzt);
+                    Aufnahmediagnose, Hausarzt);
             Anamnesebogen Bogen = new Anamnesebogen(Name, Vorname, PatientenID);
             WLgruen.add(p);
             p.setStatus("Warten");
         }
         else 
         {
-            String newLine = System.getProperty("line.separator");
-            System.out.println("Keine gülige Priorität!"+ newLine +"Gülte Prioritäten sind: rot, gelb, gruen");
-            //JOptionPane.showMessageDialog(null,"Keine gülige Priorität!"+ newLine +"Gülte Prioritäten sind: rot, gelb, gruen");
+            throw new IllegalArgumentException("Priorisierungsfarbe nicht gültig");
+
         }
 
     }
-    
+
     /**
      * Diese Methode nimmt einen Notfallpatienten auf und ruft den passenden Konstruktor auf, dem er Name, Vorname und Infektionsverdacht 
      * übergibt.
@@ -440,6 +440,7 @@ public class Anwendung
     public void NotfallPatientAufnehmen(String Name, String Vorname, boolean Infektionsverdacht)
     {
         Patient p = new Patient(Name, Vorname, Infektionsverdacht);
+        p.setZPAufnahme();
         WLrot.add(p);
     }
 
@@ -472,10 +473,25 @@ public class Anwendung
     public void Entlassung(int PatID, String NeuerStatus)
     {
         Patient p = PatientSuchenID(PatID);
+        if(p.getPatientenID() == Zimmer1.getPatientenID())
+        {
+            Zimmer1 = null;
+        }
+        else
+        {
+            if(p.getPatientenID() == Zimmer2.getPatientenID())
+            {
+            Zimmer2 = null;
+        }
+        else
+        {
+            throw new NullPointerException("Patient ist nicht in Behandlung.");
+        }
+        }
         p.setStatus(NeuerStatus);
         Langzeitliste.add(p);
         p.setZPEntlassung();
-        
+
     }
 
     /**
@@ -546,7 +562,7 @@ public class Anwendung
         }
         return null;
     }
-    
+
     /**
      * Die Methode gibt alle Patienten, die auf einer Warteliste stehen aus.
      * @return patienten
@@ -591,7 +607,7 @@ public class Anwendung
         }
         return patienten;
     }
-    
+
     /**
      * Mit diese Methode kann ein Patient über seine ID in den Listen gesucht werden.
      * @param SuchID
@@ -601,73 +617,121 @@ public class Anwendung
     {
         if(SuchID<=999999999)
         {
-        throw new IllegalArgumentException("ID ist nicht vollstänig");
-    }
-    else
-    {
-        int eID = SuchID;
-        boolean gefunden = false;
-        int i = 0;
-        while(i<WLrot.size() && !gefunden)
+            throw new IllegalArgumentException("ID ist nicht vollstänig");
+        }
+        else
         {
-            Patient p = WLrot.get(i);
-            int s = p.getPatientenID();
-            if(eID == s)
+            int eID = SuchID;
+            boolean gefunden = false;
+            int i = 0;
+            while(i<WLrot.size() && !gefunden)
             {
-                gefunden = true;
-                return p;
+                Patient p = WLrot.get(i);
+                int s = p.getPatientenID();
+                if(eID == s)
+                {
+                    gefunden = true;
+                    return p;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            i = 0;
+            while(i<WLgelb.size() && !gefunden)
+            {
+                Patient p = WLgelb.get(i);
+                int s = p.getPatientenID();
+                if(eID == s)
+                {
+                    gefunden = true;
+                    return p;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            i = 0;
+            while(i<WLgruen.size() && !gefunden)
+            {
+                Patient p = WLgruen.get(i);
+                int s = p.getPatientenID();
+                if(eID == s)
+                {
+                    gefunden = true;
+                    return p;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+            i = 0;
+            while(i<Langzeitliste.size() && !gefunden)
+            {
+                Patient p = Langzeitliste.get(i);
+                int s = p.getPatientenID();
+                if(eID == s)
+                {
+                    gefunden = true;
+                    return p;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+
+            if(Zimmer1 == null)
+            {
+                if(Zimmer2 == null)
+                {
+                    throw new NullPointerException("Patient nicht gefunden.");
+
+                }
+                else
+                {
+                    int s = Zimmer2.getPatientenID();
+                    if(eID == s)
+                    {
+                        return Zimmer2;
+                    }
+                    else
+                    {
+                        throw new NullPointerException("Patient nicht gefunden.");
+                    }
+                }
             }
             else
             {
-                i++;
+                int s = Zimmer1.getPatientenID();
+                if(eID == s)
+                {
+                    return Zimmer1;
+                }
+                else
+                {
+                    if(Zimmer2 == null)
+                    {
+                        throw new NullPointerException("Patient nicht gefunden.");
+                    }
+                    else
+                    {
+                        s = Zimmer2.getPatientenID();
+                        if(eID ==s )
+                        {
+                            return Zimmer2;
+                        }
+                        else
+                        {
+                            throw new NullPointerException("Patient nicht gefunden.");
+                        }
+                    }
+                }
             }
-        }
-        i = 0;
-        while(i<WLgelb.size() && !gefunden)
-        {
-            Patient p = WLgelb.get(i);
-            int s = p.getPatientenID();
-            if(eID == s)
-            {
-                gefunden = true;
-                return p;
-            }
-            else
-            {
-                i++;
-            }
-        }
-        i = 0;
-        while(i<WLgruen.size() && !gefunden)
-        {
-            Patient p = WLgruen.get(i);
-            int s = p.getPatientenID();
-            if(eID == s)
-            {
-                gefunden = true;
-                return p;
-            }
-            else
-            {
-                i++;
-            }
-        }
-        i = 0;
-        while(i<Langzeitliste.size() && !gefunden)
-        {
-            Patient p = Langzeitliste.get(i);
-            int s = p.getPatientenID();
-            if(eID == s)
-            {
-                gefunden = true;
-                return p;
-            }
-            else
-            {
-                i++;
-            }
-        }
-        return null;
+        }        
     }
 }
-}
+
