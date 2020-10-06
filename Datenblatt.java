@@ -4,10 +4,11 @@ import java.util.concurrent.TimeUnit;
 import java.io.File;
 import java.io.PrintWriter;
 /**
- * Die Klasse Datenblatt ist eine Subklasse von Formular.
+ * Die Klasse Datenblatt ist eine Subklasse von Formular, in der die Daten eines
+ * Patienten bei der Aufnahme dokumentiert werden können.
  * 
  * @author (Julia Gröhl, Marion Bäuerlein) 
- * @version 1 (01.10.2020)
+ * @version (06.10.2020)
  */
 
 
@@ -53,7 +54,7 @@ public class Datenblatt extends Formular
 
     /**
      * Konstruktor der Klasse Datenblatt, ruft über den Superkonstruktor den Namen, Vornamen und die PatientenID auf 
-     * und initialisiert alle Eigenschaften von Datenblatt. 
+     * und initialisiert alle Eigenschaften von Datenblatt über die Methode  DatenblattAusfuellen.
      * 
      */
     public Datenblatt(String Name, String Vorname, int PatientenID, char Geschlecht, int Jahr, int Monat,
