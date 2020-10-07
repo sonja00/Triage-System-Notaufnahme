@@ -1,8 +1,9 @@
 /**
- * Abstrakte Klasse Formular - 
+ * Die abstrakte Klasse Formular beinhaltet die PatientenID, Name und Vorname eines Patienten und die Methode Ausgabe.
+ * Die Methoden Loeschen und SpeichernInText können von den Subklassen überschrieben werden.
  * 
  * @author (Julia Gröhl, Marion Bäuerlein)
- * @version 1 (01.10.2020)
+ * @version (06.10.2020)
  */
 
 public abstract class Formular

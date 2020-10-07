@@ -1,10 +1,11 @@
 import java.io.File;
 import java.io.PrintWriter;
 /**
- * Beschreiben Sie hier die Klasse Anamnesebogen.
+ * Die Klasse Anamnesebogen ist eine Subklasse von Formular, in der die Anamnese und wichtige Vitalparameter eines
+ * Patienten während/nach der Behandlung durch einen Arzt dokumentiert werden können.
  * 
  * @author (Julia Gröhl, Marion Bäuerlein) 
- * @version 1(01.10.2020)
+ * @version (06.10.2020)
  */
 
 
@@ -19,7 +20,7 @@ public class Anamnesebogen extends Formular
     private String Weiterbehandlung;
 
     /**
-     * Konstruktor der Klasse Anamnesebogen, setzt alle Werte auf 0 bzw. "" und ruft den Superkonstruktor auf.
+     * Standardkonstruktor der Klasse Anamnesebogen, setzt alle Werte auf 0 bzw. "" und ruft den Superkonstruktor auf.
      */
     public Anamnesebogen (String Name, String Vorname, int ID)
     {
@@ -33,6 +34,22 @@ public class Anamnesebogen extends Formular
         Weiterbehandlung = "";
     }
 
+    /**
+     * Konstruktor der Klasse Anamesebogen, ruft über den Superkonstruktor den Namen, Vornamen und die PatientenID auf 
+     * und initialisiert alle Eigenschaften von Anamnesebogen über die Methode AnamnesebogenAusfüllen. 
+     * 
+     */
+    public Anamnesebogen(String Name, String Vorname, int PatientenID, String Anamnese, int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)
+    {
+        super(Name, Vorname, PatientenID);
+        AnamnesebogenAusfuellen(Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung);
+    }
+    
+    /**
+     * Die Methode AnamnesebogenAusfuellen enthält alle set-Methoden um den allen Attributen Anamnese, Blutdruck,
+     * Puls, Temperatur, SpO2Werte, Blutzucker, Weiterbehandlung zuzuweisen.
+     * 
+     */
     public void AnamnesebogenAusfuellen(String Anamnese, int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)
     {
         this.Anamnese = Anamnese;
@@ -61,8 +78,8 @@ public class Anamnesebogen extends Formular
     }
 
     /**
-     * Die Methode Ausgabe ruft den Methode Ausgabe aus der Klasse Formular auf und gibt alle Eigenschaften als 
-     * Liste aus.
+     * Die Methode Ausgabe ruft die Methode Ausgabe aus der Klasse Formular auf und gibt alle Eigenschaften als 
+     * String aus.
      * @return rückgabe
      */
     public String Ausgabe()
@@ -111,8 +128,8 @@ public class Anamnesebogen extends Formular
     }
 
     /**
-     * setMethode um dem Patienten einen Blutdruck zuzuweisen. Mit der Exception wird sichergestellt, dass kein Wert unter 0 eingegeben
-     * werden kann.
+     * setMethode um dem Patienten einen Blutdruck zuzuweisen. Mit der Exception wird sichergestellt, dass kein Wert 
+     * unter 0 eingegeben werden kann.
      * @param Blutdruck
      */
     public void setBlutdruck(int Blutdruck)throws Exception
