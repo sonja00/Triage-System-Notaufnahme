@@ -13,14 +13,11 @@ public abstract class Formular
 
     /**
      * Konstruktor der Klasse Formular, initialisiert die PatientenID, Name und Vorname des Patienten,
-     * fasst den Aufruf aller set-Methoden zusammen.
+     * fasst den Aufruf aller set-Methoden zusammen, da diese Werte nachträglich nicht mehr geändert werden sollen.
      */
     public Formular (String Name, String Vorname, int id)   
     {
-        //this.PatientenID = Patient.getPatientenID();
-        //this.Name = Patient.getName();
-        //this.Vorname = Patient.getVorname();
-        PatientenID = id;
+        this.PatientenID = id;
         this.Name = Name;
         this.Vorname = Vorname;
     }
