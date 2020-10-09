@@ -50,7 +50,7 @@ public class Patient extends Person
         setVorname(nVorname);
         setInfektionsverdacht(nInfektionsverdacht);
         setFarbe(nFarbe);
-        PatientenID = IDErstellung();
+        int PatientenID = IDErstellung();
     }
 
     /**

@@ -406,7 +406,7 @@ public class Anwendung
 
         Patient p = new Patient(Name, Vorname, Infektionsverdacht, Farbe);
         p.setZPAufnahme();
-        int PatientenID = p.IDErstellung();
+        int PatientenID = p.getPatientenID();
         if (Farbe.equals("gelb"))
         {
             Anamnesebogen Bogen = new Anamnesebogen(Name,Vorname, PatientenID);
