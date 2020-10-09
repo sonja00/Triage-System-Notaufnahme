@@ -1,0 +1,17 @@
+PatientenID: 33 Name: Unglert Vorname: Sonja
+
+Anamnese: /nkeine
+
+Blutdruck: /n44
+
+Puls: /n44
+
+Temperatur: /n44.0
+
+SpO2: /n44
+
+Blutzucker: /n44
+
+Weiterbehandlung: /n nichts
+
+
