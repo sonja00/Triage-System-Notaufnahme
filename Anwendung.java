@@ -448,7 +448,7 @@ public class Anwendung
      * Diese Methode ruft den Anamnesbogen eines Patienten auf, um diesen auszufüllen.
      * @param p, Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung
      */
-    public void AnamnesebogenAufrufen(Patient p, String Anamnese, int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)
+    public void AnamnesebogenAufrufen(Patient p, String Anamnese, int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)throws Exception
     {
         p.AnamnesebogenAufrufen(Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung);
     }

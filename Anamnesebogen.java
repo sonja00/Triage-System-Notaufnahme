@@ -8,7 +8,6 @@ import java.io.PrintWriter;
  * @version (06.10.2020)
  */
 
-
 public class Anamnesebogen extends Formular
 {
     private String Anamnese;
@@ -39,26 +38,26 @@ public class Anamnesebogen extends Formular
      * und initialisiert alle Eigenschaften von Anamnesebogen über die Methode AnamnesebogenAusfüllen. 
      * 
      */
-    public Anamnesebogen(String Name, String Vorname, int PatientenID, String Anamnese, int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)
+    public Anamnesebogen(String Name, String Vorname, int PatientenID, String Anamnese, int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)throws Exception
     {
         super(Name, Vorname, PatientenID);
         AnamnesebogenAusfuellen(Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung);
     }
-    
+
     /**
      * Die Methode AnamnesebogenAusfuellen enthält alle set-Methoden um den allen Attributen Anamnese, Blutdruck,
      * Puls, Temperatur, SpO2Werte, Blutzucker, Weiterbehandlung zuzuweisen.
      * 
      */
-    public void AnamnesebogenAusfuellen(String Anamnese, int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)
+    public void AnamnesebogenAusfuellen(String Anamnese, int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)throws Exception
     {
-        this.Anamnese = Anamnese;
-        this.Blutdruck = Blutdruck;
-        this.Puls =Puls;
-        this.Temperatur = Temperatur;
-        this.SpO2 = SpO2;
-        this. Blutzucker = Blutzucker;
-        this.Weiterbehandlung = Weiterbehandlung;
+        setAnamnese(Anamnese);
+        setBlutdruck(Blutdruck);
+        setPuls(Puls);
+        setTemperatur(Temperatur);
+        setSpO2(SpO2);
+        setBlutzucker(Blutzucker);
+        setWeiterbehandlung(Weiterbehandlung);
 
     }
 
@@ -118,7 +117,7 @@ public class Anamnesebogen extends Formular
 
     }
 
-   /**
+    /**
      * setMethode um dem Patienten eine Anamnese zuzuweisen.
      * @param Anamnese
      */      
@@ -135,13 +134,11 @@ public class Anamnesebogen extends Formular
     public void setBlutdruck(int Blutdruck)throws Exception
     { 
         if (Blutdruck < 0)
-            { 
-                throw new Exception ("Blutdruckwert nicht möglich!");
-            }
-            this.Blutdruck = Blutdruck; 
+        { 
+            throw new Exception ("Blutdruckwert nicht möglich!");
+        }
+        this.Blutdruck = Blutdruck; 
     }
-      
-   
 
     /**
      * setMethode um dem Patienten einen Puls zuzuweisen.Mit der Exception wird sichergestellt, dass kein Wert unter 0 eingegeben
@@ -151,13 +148,11 @@ public class Anamnesebogen extends Formular
     public void setPuls(int Puls) throws Exception
     {
         if (Puls < 0)
-            {
-                throw new Exception ("Pulswert nicht möglich!");
-            }
-            this.Puls = Puls;
+        {
+            throw new Exception ("Pulswert nicht möglich!");
+        }
+        this.Puls = Puls;
     }
-            
-   
 
     /**
      * setMethode um dem Patienten eine Temperatur zuzuweisen.Mit der Exception wird sichergestellt, dass kein Wert unter 0 eingegeben
@@ -167,12 +162,11 @@ public class Anamnesebogen extends Formular
     public void setTemperatur(double Temperatur) throws Exception
     {
         if (Temperatur < 0)
-            {
-                throw new Exception ("Temperatur nicht möglich!");
-            }
-            this.Temperatur = Temperatur;
-   }
-  
+        {
+            throw new Exception ("Temperatur nicht möglich!");
+        }
+        this.Temperatur = Temperatur;
+    }
 
     /**
      * setMethode um dem Patienten eine Sauerstoffsättigung zuzuweisen.Mit der Exception wird sichergestellt, dass kein Wert unter 0 eingegeben
@@ -182,12 +176,11 @@ public class Anamnesebogen extends Formular
     public void setSpO2(int SpO2) throws Exception
     {
         if (SpO2 < 0)
-            {
-                throw new Exception ("SpO2-Wert nicht möglich!");
-            }
-            this.SpO2 = SpO2;
+        {
+            throw new Exception ("SpO2-Wert nicht möglich!");
+        }
+        this.SpO2 = SpO2;
     }
-    
 
     /**
      * setMethode um dem Patienten ein Blutzucker zuzuweisen.Mit der Exception wird sichergestellt, dass kein Wert unter 0 eingegeben
@@ -196,14 +189,12 @@ public class Anamnesebogen extends Formular
      */
     public void setBlutzucker(int Blutzucker) throws Exception
     {
-            if (Blutzucker < 0)
-                {
-                    throw new Exception ("Blutzuckerwert nicht möglich!");
-                }
-                this.Blutzucker = Blutzucker;
+        if (Blutzucker < 0)
+        {
+            throw new Exception ("Blutzuckerwert nicht möglich!");
+        }
+        this.Blutzucker = Blutzucker;
     }
-    
-       
 
     /**
      * setMethode um dem Patienten eine Weiterbehandlung zuzuweisen.
