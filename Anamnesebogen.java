@@ -86,13 +86,13 @@ public class Anamnesebogen extends Formular
 
         String rückgabe = "";
         rückgabe += super.Ausgabe() + "\n\n";
-        rückgabe += "Anamnese: " + Anamnese + "\n\n";
-        rückgabe += "Blutdruck: " + Integer.toString(Blutdruck) + "\n\n";
-        rückgabe += "Puls: " + Integer.toString(Puls) + "\n\n";
-        rückgabe += "Temperatur: " + Double.toString(Temperatur) + "\n\n";
-        rückgabe += "SpO2: " + Integer.toString(SpO2) + "\n\n";
-        rückgabe += "Blutzucker: " + Integer.toString(Blutzucker) + "\n\n";
-        rückgabe += "Weiterbehandlung: " + Weiterbehandlung + "\n\n";
+        rückgabe += "Anamnese: \n" + Anamnese + "\n\n";
+        rückgabe += "Blutdruck: \n" + Integer.toString(Blutdruck) + "\n\n";
+        rückgabe += "Puls: \n" + Integer.toString(Puls) + "\n\n";
+        rückgabe += "Temperatur: \n" + Double.toString(Temperatur) + "\n\n";
+        rückgabe += "SpO2: \n" + Integer.toString(SpO2) + "\n\n";
+        rückgabe += "Blutzucker: \n" + Integer.toString(Blutzucker) + "\n\n";
+        rückgabe += "Weiterbehandlung: \n" + Weiterbehandlung + "\n\n";
         return rückgabe;
     }
 
