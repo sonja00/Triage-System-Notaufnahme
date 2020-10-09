@@ -446,22 +446,24 @@ public class Anwendung
 
     /**
      * Diese Methode ruft den Anamnesbogen eines Patienten auf, um diesen auszufüllen.
-     * @param p, Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung
+     * @param ID, Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung
      */
-    public void AnamnesebogenAufrufen(Patient p, String Anamnese, int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)throws Exception
+    public void AnamnesebogenAufrufen(int ID, String Anamnese, int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)throws Exception
     {
+        Patient p = PatientSuchenID(ID);
         p.AnamnesebogenAufrufen(Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung);
     }
 
     /**
      * Diese Methode ruft das Datenblatt eines Patienten auf, um dieses auszufüllen.
-     * @param p, Geschlecht, Gebdatum, Gebort, Strasse, Hausnr, PLZ, Ort, Tel, Vererkrankungen, Medikamente, Allergien, Aufnahmediagnose, Hausarzt
+     * @param ID, Geschlecht, Gebdatum, Gebort, Strasse, Hausnr, PLZ, Ort, Tel, Vererkrankungen, Medikamente, Allergien, Aufnahmediagnose, Hausarzt
      */
-    public void DatenblattAufrufen(Patient p, char Geschlecht, int Jahr, int Monat,
+    public void DatenblattAufrufen(int ID, char Geschlecht, int Jahr, int Monat,
     int Tag, String Gebort, String Strasse, int Hausnummer, int PLZ, String Ort,
     int Telefon, String Vorerkrankungen, String Medikamente, String Allergien, 
     String Aufnahmediagnose, String Hausarzt)
     {
+        Patient p = PatientSuchenID(ID);
         p.DatenblattAufrufen(Geschlecht, Jahr, Monat, Tag, Gebort,Strasse, Hausnummer, PLZ, Ort, Telefon, Vorerkrankungen, Medikamente, Allergien, Aufnahmediagnose, Hausarzt);
     }
 
