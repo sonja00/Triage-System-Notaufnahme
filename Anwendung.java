@@ -475,13 +475,13 @@ public class Anwendung
     public void Entlassung(int PatID, String NeuerStatus)
     {
         Patient p = PatientSuchenID(PatID);
-        if(p.getPatientenID() == Zimmer1.getPatientenID())
+        if(Zimmer1 != null && p.getPatientenID() == Zimmer1.getPatientenID())
         {
             Zimmer1 = null;
         }
         else
         {
-            if(p.getPatientenID() == Zimmer2.getPatientenID())
+            if(Zimmer2 != null && p.getPatientenID() == Zimmer2.getPatientenID())
             {
             Zimmer2 = null;
         }
