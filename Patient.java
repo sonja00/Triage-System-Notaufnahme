@@ -252,4 +252,9 @@ public class Patient extends Person
         AnBogen.AnamnesebogenAusfuellen(Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung);
     }
 
+    public void AnamnesebogenAusgeben()
+    {
+        AnBogen.Ausgabe();
+    }
+    
 }
