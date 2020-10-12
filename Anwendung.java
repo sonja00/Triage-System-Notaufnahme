@@ -79,13 +79,13 @@ public class Anwendung
      */
     private void Priorisieren(String Farbe, Patient p)
     {
-        if(Farbe == "rot")
+        if(Farbe.equals("rot"))
         {
             WLrot.add(p);
         }
         else
         {
-            if(Farbe == "gelb")
+            if(Farbe.equals("gelb"))
             {
                 WLgelb.add(p);
             }
@@ -467,10 +467,52 @@ public class Anwendung
         p.DatenblattAufrufen(Geschlecht, Jahr, Monat, Tag, Gebort,Strasse, Hausnummer, PLZ, Ort, Telefon, Vorerkrankungen, Medikamente, Allergien, Aufnahmediagnose, Hausarzt);
     }
     
-    public void AnamnesebogenAusgeben(int ID)
+    /**
+     * Diese Methode ruft den Anamnesebogen eines Patienten zur Einsicht auf.
+     * @param ID
+     * @return rückgabe
+     */
+    public String AnamnesebogenAusgeben(int ID)
     {
         Patient p = PatientSuchenID(ID);
-        p.AnamnesebogenAusgeben();
+        String rückgabe = p.AnamnesebogenAusgeben();
+        return rückgabe;
+    }
+    
+    /**
+     * Diese Methode ruft das DAtenblatt eines Patienten zur Einsicht auf.
+     * @param ID
+     * @return rückgabe
+     */
+    public String DatenblattAusgeben(int ID)
+    {
+        Patient p = PatientSuchenID(ID);
+        String rückgabe = p.DatenblattAusgeben();
+        return rückgabe;
+    }
+    
+    /**
+     * Diese Methode speichert den Anamensebogen eines Patienten als externe Datei ab.
+     * @param ID
+     * @return rückgabe
+     */
+    public String AnamnesebogenSpeichernAlsText(int ID)
+    {
+        Patient p = PatientSuchenID(ID);
+        String rückgabe = p.AbogenSpeichernAlsText();
+        return rückgabe;
+    }
+    
+    /**
+     * Diese Methode speichert das Datenblatt eines Patienten als externe Datei ab.
+     * @param ID
+     * @return rückgabe
+     */
+    public String DatenblattSpeichernAlsText(int ID)
+    {
+        Patient p = PatientSuchenID(ID);
+        String rückgabe = p.DblattSpeichernAlsText();
+        return rückgabe;
     }
 
     /**

@@ -252,9 +252,44 @@ public class Patient extends Person
         AnBogen.AnamnesebogenAusfuellen(Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung);
     }
 
-    public void AnamnesebogenAusgeben()
+    /**
+     * Diese Methode ruft den Anamnesebogen zur Einsicht eines Patienten auf.
+     * @return rückgabe
+     */
+    public String AnamnesebogenAusgeben()
     {
-        AnBogen.Ausgabe();
+        String rückgabe = AnBogen.Ausgabe();
+        return rückgabe;
+        
     }
     
+    /**
+     * Diese Methode ruft das Datenblatt zur Einsicht eines Patienten auf.
+     * @return rückgabe
+     */
+    public String DatenblattAusgeben()
+    {
+        String rückgabe = Datenbl.Ausgabe();
+        return rückgabe;
+    }
+    
+    /**
+     * Diese Methode speichert den Anamnesebogen als externe Datei ab.
+     * @return rückgabe
+     */
+    public String AbogenSpeichernAlsText()
+    {
+        String rückgabe = AnBogen.SpeichernAlsText();
+        return rückgabe;
+    }
+    
+    /**
+     * Diese Methode speichert das Datenblatt als externe Datei ab.
+     * @return rückgabe
+     */
+    public String DblattSpeichernAlsText()
+    {
+        String rückgabe = Datenbl.SpeichernAlsText();
+        return rückgabe;
+    }
 }

@@ -113,7 +113,7 @@ public class Anamnesebogen extends Formular
             return "Fehler beim Speichern " + e.toString();
         }
 
-        return "Speichern Erfolgreich";
+        return "Speichern erfolgreich";
 
     }
 
