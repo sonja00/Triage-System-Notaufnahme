@@ -51,6 +51,8 @@ public class Patient extends Person
         setInfektionsverdacht(nInfektionsverdacht);
         setFarbe(nFarbe);
         PatientenID = IDErstellung();
+        Datenbl = new Datenblatt (Name, Vorname,PatientenID);
+        AnBogen = new Anamnesebogen(Name,Vorname, PatientenID);
     }
 
     /**
