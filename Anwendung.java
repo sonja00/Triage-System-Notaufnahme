@@ -19,7 +19,7 @@ public class Anwendung
     /**
      * Konstruktor der Klasse Anwendung, Initialisiert alle vier ArrayLists 
      * und setzt beide Zimmer auf Null. Da der Konstruktor ausschließlich zum 
-     * erzeugen der Listen dient, ist nur kein weiterer Konstruktor 
+     * erzeugen der Listen dient, ist kein weiterer Konstruktor 
      * von Nöten.
      */
     public Anwendung()

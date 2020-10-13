@@ -221,8 +221,7 @@ public class Datenblatt extends Formular
             this.Gebdatum = oldDate; 
             throw new IllegalArgumentException("Geburtsdatum liegt in der Zukunft " + dateRepresentation.toGMTString());
         }
-                
-       
+                      
     }
 
     /**
