@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 public class Anamnesebogen extends Formular
 {
     private String Anamnese;
-    private int Blutdruck;
+    private String Blutdruck;
     private int Puls;
     private double Temperatur;
     private int SpO2;
@@ -25,7 +25,7 @@ public class Anamnesebogen extends Formular
     {
         super(Name, Vorname,ID);
         Anamnese = "";
-        Blutdruck = 0;
+        Blutdruck = "";
         Puls = 0;
         Temperatur = 0;
         SpO2 = 0;
@@ -38,7 +38,7 @@ public class Anamnesebogen extends Formular
      * und initialisiert alle Eigenschaften von Anamnesebogen über die Methode AnamnesebogenAusfüllen. 
      * 
      */
-    public Anamnesebogen(String Name, String Vorname, int PatientenID, String Anamnese, int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)throws Exception
+    public Anamnesebogen(String Name, String Vorname, int PatientenID, String Anamnese, String Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)throws Exception
     {
         super(Name, Vorname, PatientenID);
         AnamnesebogenAusfuellen(Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung);
@@ -49,7 +49,7 @@ public class Anamnesebogen extends Formular
      * Puls, Temperatur, SpO2Werte, Blutzucker, Weiterbehandlung zuzuweisen.
      * 
      */
-    public void AnamnesebogenAusfuellen(String Anamnese, int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)throws Exception
+    public void AnamnesebogenAusfuellen(String Anamnese, String Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)throws Exception
     {
         setAnamnese(Anamnese);
         setBlutdruck(Blutdruck);
@@ -68,7 +68,7 @@ public class Anamnesebogen extends Formular
     public void Loeschen()
     { 
         Anamnese = "";
-        Blutdruck = 0;
+        Blutdruck = "";
         Puls = 0;
         Temperatur = 0;
         SpO2 = 0;
@@ -87,7 +87,7 @@ public class Anamnesebogen extends Formular
         String rückgabe = "";
         rückgabe += super.Ausgabe() + "\n\n";
         rückgabe += "Anamnese: \n" + Anamnese + "\n\n";
-        rückgabe += "Blutdruck: \n" + Integer.toString(Blutdruck) + "\n\n";
+        rückgabe += "Blutdruck: \n" + Blutdruck + "\n\n";
         rückgabe += "Puls: \n" + Integer.toString(Puls) + "\n\n";
         rückgabe += "Temperatur: \n" + Double.toString(Temperatur) + "\n\n";
         rückgabe += "SpO2: \n" + Integer.toString(SpO2) + "\n\n";
@@ -131,12 +131,8 @@ public class Anamnesebogen extends Formular
      * unter 0 eingegeben werden kann.
      * @param Blutdruck
      */
-    public void setBlutdruck(int Blutdruck)throws Exception
+    public void setBlutdruck(String Blutdruck)
     { 
-        if (Blutdruck < 0)
-        { 
-            throw new Exception ("Blutdruckwert nicht möglich!");
-        }
         this.Blutdruck = Blutdruck; 
     }
 
@@ -209,7 +205,8 @@ public class Anamnesebogen extends Formular
      * getMethode um die Anamnese des Patienten auszugeben.
      * @return Anamnese
      */
-    public String getAnamnese() {
+    public String getAnamnese()
+    {
         return Anamnese;
     }
 
@@ -217,7 +214,8 @@ public class Anamnesebogen extends Formular
      * getMethode um den Blutdruck des Patienten auszugeben.
      * @return Blutdruck
      */
-    public int getBlutdruck() {
+    public String getBlutdruck()
+    {
         return Blutdruck;
     }
 
@@ -225,7 +223,8 @@ public class Anamnesebogen extends Formular
      * getMethode um Puls des Patienten auszugeben.
      * @return Puls
      */
-    public int getPuls() {
+    public int getPuls()
+    {
         return Puls;
     }
 
