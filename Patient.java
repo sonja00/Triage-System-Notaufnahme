@@ -249,7 +249,7 @@ public class Patient extends Person
      * Diese Methode ruft den Anamnesebogen eines Patienten auf, um diesen auszufüllen.
      * @param Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung
      */
-    public void AnamnesebogenAufrufen(String Anamnese,String Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)throws Exception
+    public void AnamnesebogenAufrufen(String Anamnese,int Blutdruck, int Puls, double Temperatur, int SpO2, int Blutzucker, String Weiterbehandlung)throws Exception
     {
         AnBogen.AnamnesebogenAusfuellen(Anamnese, Blutdruck, Puls, Temperatur, SpO2, Blutzucker, Weiterbehandlung);
     }
