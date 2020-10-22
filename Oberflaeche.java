@@ -14,6 +14,7 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import javax.swing.border.Border;
 import javax.swing.*;
+import javax.swing.JOptionPane;
 
 public class Oberflaeche extends JFrame {
     private JMenuBar menuBar;
@@ -29,7 +30,7 @@ public class Oberflaeche extends JFrame {
     private JTextField PLZ;
     private JButton Pat_aufnehmen;
     private JButton Pat_aufrufen;
-    private JButton Pat_entlassen;
+    private JButton notfall_fertig_aufn;
     private JTextField RR;
     private JComboBox Tag;
     private JTextField Vorname;
@@ -111,6 +112,13 @@ public class Oberflaeche extends JFrame {
         Hausnummer.setFont(new Font("sansserif",0,12));
         Hausnummer.setText("Nr.");
         Hausnummer.setVisible(false);
+        Hausnummer.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(Hausnummer.getText().equals("Nr."))
+                Hausnummer.setText("");
+                else;
+            }
+        });
 
         Infektionsverdacht = new JCheckBox();
         Infektionsverdacht.setBounds(390,23,150,35);
@@ -120,6 +128,7 @@ public class Oberflaeche extends JFrame {
         Infektionsverdacht.setFont(new Font("sansserif",0,12));
         Infektionsverdacht.setText("Infektionsverdacht");
         Infektionsverdacht.setVisible(false);
+        Infektionsverdacht.setSelected(false);
 
         Jahr = new JComboBox();
         Jahr.setBounds(398,176,90,35);
@@ -258,6 +267,13 @@ public class Oberflaeche extends JFrame {
         Name.setFont(new Font("sansserif",0,12));
         Name.setText("Name");
         Name.setVisible(false);
+        Name.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(Name.getText().equals("Name"))
+                Name.setText("");
+                else;
+            }
+        });
 
         Not_aufnehmen = new JButton();
         Not_aufnehmen.setBounds(22,211,150,35);
@@ -283,6 +299,14 @@ public class Oberflaeche extends JFrame {
         PLZ.setFont(new Font("sansserif",0,12));
         PLZ.setText("PLZ");
         PLZ.setVisible(false);
+        PLZ.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(PLZ.getText().equals("PLZ"))
+                PLZ.setText("");
+                else;
+            }
+        });
+
 
         Pat_aufnehmen = new JButton();
         Pat_aufnehmen.setBounds(22,176,150,35);
@@ -316,19 +340,19 @@ public class Oberflaeche extends JFrame {
                 }
             });
 
-        Pat_entlassen = new JButton();
-        Pat_entlassen.setBounds(22,281,150,35);
-        Pat_entlassen.setBackground(new Color(214,217,223));
-        Pat_entlassen.setForeground(new Color(0,0,0));
-        Pat_entlassen.setEnabled(true);
-        Pat_entlassen.setFont(new Font("sansserif",0,12));
-        Pat_entlassen.setText("Patient entlassen");
-        Pat_entlassen.setVisible(true);
+        notfall_fertig_aufn = new JButton();
+        notfall_fertig_aufn.setBounds(22,281,150,35);
+        notfall_fertig_aufn.setBackground(new Color(214,217,223));
+        notfall_fertig_aufn.setForeground(new Color(0,0,0));
+        notfall_fertig_aufn.setEnabled(true);
+        notfall_fertig_aufn.setFont(new Font("sansserif",0,12));
+        notfall_fertig_aufn.setText("Patient entlassen");
+        notfall_fertig_aufn.setVisible(true);
         //Set action for button click
         //Call defined method
-        Pat_entlassen.addActionListener(new ActionListener() {
+        notfall_fertig_aufn.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
-                    Pat_entlassen(evt);
+                    notfall_fertig_aufn(evt);
                 }
             });
 
@@ -340,6 +364,14 @@ public class Oberflaeche extends JFrame {
         RR.setFont(new Font("sansserif",0,12));
         RR.setText("RR Sys");
         RR.setVisible(false);
+        RR.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(RR.getText().equals("RR"))
+                RR.setText("");
+                else;
+            }
+        });
+
 
         Tag = new JComboBox();
         Tag.setBounds(268,176,60,35);
@@ -388,6 +420,14 @@ public class Oberflaeche extends JFrame {
         Vorname.setFont(new Font("sansserif",0,12));
         Vorname.setText("Vorname");
         Vorname.setVisible(false);
+        Vorname.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(Vorname.getText().equals("Vorname"))
+                Vorname.setText("");
+                else;
+            }
+        });
+
 
         akt_Pat_List = new JTextArea();
         akt_Pat_List.setBounds(22,50,200,120);
@@ -398,6 +438,7 @@ public class Oberflaeche extends JFrame {
         akt_Pat_List.setText("");
         akt_Pat_List.setBorder(BorderFactory.createBevelBorder(1));
         akt_Pat_List.setVisible(true);
+        akt_Pat_List.setEditable(false);
 
         allergien = new JTextField();
         allergien.setBounds(430,325,90,35);
@@ -407,6 +448,14 @@ public class Oberflaeche extends JFrame {
         allergien.setFont(new Font("sansserif",0,12));
         allergien.setText("Allergien");
         allergien.setVisible(false);
+        allergien.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(allergien.getText().equals("Allergien"))
+                allergien.setText("");
+                else;
+            }
+        });
+
 
         anamnese = new JTextArea();
         anamnese.setBounds(610,229,311,159);
@@ -417,6 +466,9 @@ public class Oberflaeche extends JFrame {
         anamnese.setText("");
         anamnese.setBorder(BorderFactory.createBevelBorder(1));
         anamnese.setVisible(false);
+        
+        
+
 
         aufn_diagnose = new JTextArea();
         aufn_diagnose.setBounds(270,420,250,80);
@@ -427,6 +479,14 @@ public class Oberflaeche extends JFrame {
         aufn_diagnose.setText("Aufnahmediagnose");
         aufn_diagnose.setBorder(BorderFactory.createBevelBorder(1));
         aufn_diagnose.setVisible(false);
+        aufn_diagnose.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(aufn_diagnose.getText().equals("Aufnahmediagnose"))
+                aufn_diagnose.setText("");
+                else;
+            }
+        });
+
 
         bz = new JTextField();
         bz.setBounds(720,155,90,35);
@@ -436,6 +496,14 @@ public class Oberflaeche extends JFrame {
         bz.setFont(new Font("sansserif",0,12));
         bz.setText("BZ");
         bz.setVisible(false);
+        bz.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(bz.getText().equals("BZ"))
+                bz.setText("");
+                else;
+            }
+        });
+
 
         c = new JComboBox();
         c.setBounds(386,120,90,35);
@@ -487,6 +555,14 @@ public class Oberflaeche extends JFrame {
         gbort.setFont(new Font("sansserif",0,12));
         gbort.setText("Geburtsort");
         gbort.setVisible(false);
+        gbort.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(gbort.getText().equals("Geburtsort"))
+                gbort.setText("");
+                else;
+            }
+        });
+
 
         hausarzt = new JTextField();
         hausarzt.setBounds(430,360,90,35);
@@ -496,6 +572,14 @@ public class Oberflaeche extends JFrame {
         hausarzt.setFont(new Font("sansserif",0,12));
         hausarzt.setText("Hausarzt");
         hausarzt.setVisible(false);
+        hausarzt.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(hausarzt.getText().equals("Hausarzt"))
+                hausarzt.setText("");
+                else;
+            }
+        });
+
 
         label1 = new JLabel();
         label1.setBounds(270,149,50,35);
@@ -586,6 +670,14 @@ public class Oberflaeche extends JFrame {
         medis.setFont(new Font("sansserif",0,12));
         medis.setText("Medikamente");
         medis.setVisible(false);
+        medis.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(medis.getText().equals("Medikamente"))
+                medis.setText("");
+                else;
+            }
+        });
+
 
         pat_id = new JTextField();
         pat_id.setBounds(610,50,120,35);
@@ -595,6 +687,14 @@ public class Oberflaeche extends JFrame {
         pat_id.setFont(new Font("sansserif",0,12));
         pat_id.setText("Patienten ID");
         pat_id.setVisible(false);
+        pat_id.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(pat_id.getText().equals("Patienten ID"))
+                pat_id.setText("");
+                else;
+            }
+        });
+
 
         puls = new JTextField();
         puls.setBounds(610,120,90,35);
@@ -604,6 +704,14 @@ public class Oberflaeche extends JFrame {
         puls.setFont(new Font("sansserif",0,12));
         puls.setText("Puls");
         puls.setVisible(false);
+        puls.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(puls.getText().equals("Puls"))
+                puls.setText("");
+                else;
+            }
+        });
+
 
         spo2 = new JTextField();
         spo2.setBounds(720,120,90,35);
@@ -613,6 +721,14 @@ public class Oberflaeche extends JFrame {
         spo2.setFont(new Font("sansserif",0,12));
         spo2.setText("SpO2");
         spo2.setVisible(false);
+        spo2.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(spo2.getText().equals("SpO2"))
+                spo2.setText("");
+                else;
+            }
+        });
+
 
         strasse = new JTextField();
         strasse.setBounds(270,255,150,35);
@@ -622,6 +738,14 @@ public class Oberflaeche extends JFrame {
         strasse.setFont(new Font("sansserif",0,12));
         strasse.setText("Strasse");
         strasse.setVisible(false);
+        strasse.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(strasse.getText().equals("Strasse"))
+                strasse.setText("");
+                else;
+            }
+        });
+
 
         tel_nr = new JTextField();
         tel_nr.setBounds(390,65,90,35);
@@ -631,6 +755,14 @@ public class Oberflaeche extends JFrame {
         tel_nr.setFont(new Font("sansserif",0,12));
         tel_nr.setText("Tel. Nr.");
         tel_nr.setVisible(false);
+        tel_nr.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(tel_nr.getText().equals("Tel. Nr."))
+                tel_nr.setText("");
+                else;
+            }
+        });
+
 
         temp = new JTextField();
         temp.setBounds(610,155,90,35);
@@ -640,6 +772,14 @@ public class Oberflaeche extends JFrame {
         temp.setFont(new Font("sansserif",0,12));
         temp.setText("Temp.");
         temp.setVisible(false);
+        temp.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(temp.getText().equals("Temp."))
+                temp.setText("");
+                else;
+            }
+        });
+
 
         vorerkr = new JTextField();
         vorerkr.setBounds(270,325,150,35);
@@ -649,6 +789,14 @@ public class Oberflaeche extends JFrame {
         vorerkr.setFont(new Font("sansserif",0,12));
         vorerkr.setText("Vorerkankungen");
         vorerkr.setVisible(false);
+        vorerkr.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(vorerkr.getText().equals("Vorerkrankungen"))
+                vorerkr.setText("");
+                else;
+            }
+        });
+
 
         weiterbehand = new JTextField();
         weiterbehand.setBounds(610,420,150,35);
@@ -667,6 +815,14 @@ public class Oberflaeche extends JFrame {
         wohnort.setFont(new Font("sansserif",0,12));
         wohnort.setText("Wohnort");
         wohnort.setVisible(false);
+        wohnort.addMouseListener(new MouseAdapter(){
+        public void mouseClicked(MouseEvent e){
+                if(wohnort.getText().equals("Wohnort"))
+                wohnort.setText("");
+                else;
+            }
+        });
+
 
         //adding components to contentPane panel
         contentPane.add(Anam_speichern);
@@ -680,7 +836,7 @@ public class Oberflaeche extends JFrame {
         contentPane.add(PLZ);
         contentPane.add(Pat_aufnehmen);
         contentPane.add(Pat_aufrufen);
-        contentPane.add(Pat_entlassen);
+        contentPane.add(notfall_fertig_aufn);
         contentPane.add(RR);
         contentPane.add(Tag);
         contentPane.add(Vorname);
@@ -723,14 +879,26 @@ public class Oberflaeche extends JFrame {
     }
 
     //Method actionPerformed for Anam_speichern
-    private void notfall_endgueltig_auf (ActionEvent evt) {
+    private void notfall_endgueltig_auf (ActionEvent evt) 
+    {
+        Anwendung.NotfallPatientAufnehmen(Name.getText(),Vorname.getText(),Infektionsverdacht.isSelected());
+        Anwendung.Priorisieren("rot",p);
+        akt_Pat_List.setText("");
+        akt_Pat_List.setText(Anwendung.ListenAusgeben());
         Name.setVisible(false);
         Vorname.setVisible(false);
         Infektionsverdacht.setVisible(false);
         notfall_endgueltig_auf.setVisible(false);
+        Name.setText("Name");
+        Vorname.setText("Vorname");
+        Infektionsverdacht.setSelected(false);
     }
-    
+
     private void Anam_speichern (ActionEvent evt){
+        Anwendung.AnamnesebogenAusfuellen(Integer.parseInt(pat_id.getText()),anamnese.getText(),Integer.parseInt(RR.getText()),Integer.parseInt(puls.getText()),Double.parseDouble(temp.getText()),Integer.parseInt(spo2.getText()),Integer.parseInt(bz.getText()),weiterbehand.getText());
+        Anwendung.Entlassung(Integer.parseInt(pat_id.getText()),weiterbehand.getText());
+        akt_Pat_List.setText("");
+        akt_Pat_List.setText(Anwendung.ListenAusgeben());
         label7.setVisible(false);
         label8.setVisible(false);
         label9.setVisible(false);
@@ -743,8 +911,15 @@ public class Oberflaeche extends JFrame {
         anamnese.setVisible(false);
         bz.setVisible(false);
         Anam_speichern.setVisible(false);
+        temp.setText("Temperatur");
+        puls.setText("Puls");
+        spo2.setText("SpO2");
+        RR.setText("RR Sys");
+        anamnese.setText("");
+        pat_id.setText("Patineten ID");
+        weiterbehand.setText("");
+        
     }
-
 
     //Method actionPerformed for Not_aufnehmen
     private void Not_aufnehmen (ActionEvent evt) {
@@ -798,15 +973,21 @@ public class Oberflaeche extends JFrame {
         anamnese.setVisible(true);
         bz.setVisible(true);
         Anam_speichern.setVisible(true);
+        Anwendung.PatientenAufruf();
     }
 
     //Method actionPerformed for Pat_entlassen
-    private void Pat_entlassen (ActionEvent evt) {
-        //TODO
+    private void notfall_fertig_aufn (ActionEvent evt) 
+    {
+        //Methode wird nicht benötigt (Platzhalter falls weiterer Button und Methode nötig wäre)
     }
 
     //Method actionPerformed for end_aufnehmen
     private void endgueltig_aufnehmen (ActionEvent evt) {
+        Anwendung.PatientAufnehmen(Name.getText(),Vorname.getText(),String.valueOf(c.getSelectedItem()),Infektionsverdacht.isSelected(),Geschlecht.getSelectedItem().toString().charAt(0),Integer.parseInt(Jahr.getSelectedItem().toString()),Integer.parseInt(Monat.getSelectedItem().toString()),Integer.parseInt(Tag.getSelectedItem().toString()),gbort.getText(),strasse.getText(),Integer.parseInt(Hausnummer.getText()),Integer.parseInt(PLZ.getText()),wohnort.getText(),Integer.parseInt(tel_nr.getText()),vorerkr.getText(),medis.getText(),allergien.getText(),aufn_diagnose.getText(),hausarzt.getText()); 
+        Anwendung.Priorisieren(Patient.getFarbe(),p);
+        akt_Pat_List.setText("");
+        akt_Pat_List.setText(Anwendung.ListenAusgeben());
         Name.setVisible(false);
         Vorname.setVisible(false);
         Infektionsverdacht.setVisible(false);
@@ -831,6 +1012,24 @@ public class Oberflaeche extends JFrame {
         label3.setVisible(false);
         label4.setVisible(false);
         label5.setVisible(false);
+        Name.setText("Name");
+        Vorname.setText("Vorname");
+        Infektionsverdacht.setSelected(false);
+        Geschlecht.setSelectedItem("weiblich");
+        Tag.setSelectedItem("01");
+        c.setSelectedItem("gelb");
+        Monat.setSelectedItem("12");
+        Jahr.setSelectedItem("2020");
+        gbort.setText("Geburtsort");
+        strasse.setText("Strasse");
+        Hausnummer.setText("Nr.");
+        PLZ.setText("PLZ");
+        wohnort.setText("Wohnort");
+        vorerkr.setText("Vorerkrankungen");
+        allergien.setText("Allergien");
+        medis.setText("Medikamente");
+        hausarzt.setText("Hausarzt");
+        aufn_diagnose.setText("Aufnahmediagnose");
     }
 
     //method for generate menu
@@ -850,6 +1049,8 @@ public class Oberflaeche extends JFrame {
         JMenuItem anamnesebogenausgeben = new JMenuItem("Anamnesebogen ausgeben   ");
         JMenuItem datenblattausgeben = new JMenuItem("Datenblatt ausgeben   ");
         JMenuItem programminformationen = new JMenuItem("Programm-Informationen   ");
+        JMenuItem datenblatt_speichern = new JMenuItem("Datenblatt Speichern    ");
+        JMenuItem anamnesebogen_speichern = new JMenuItem("Anamnesebogen Speichern    ");
 
         //Setings action for menu item
         //Call defined method
@@ -915,7 +1116,23 @@ public class Oberflaeche extends JFrame {
                 }
             });
 
+        datenblatt_speichern.addActionListener(new ActionListener()  {
+                public void actionPerformed(ActionEvent evt) {
+                    datenbl_speichern(evt);
+                }
+            });
+        anamnesebogen_speichern.addActionListener(new ActionListener()  
+        {
+           public void actionPerformed(ActionEvent evt) {
+                    anam_speichern(evt);
+              }
+            });
+
+
+
         file.add(beenden);
+        file.add(datenblatt_speichern);
+        file.add(anamnesebogen_speichern);
         tools.add(patientsuchenid);
         tools.add(pateintsuchenname);
         tools.add(pateintloeschen);
@@ -933,40 +1150,113 @@ public class Oberflaeche extends JFrame {
     private void beenden (ActionEvent evt) {
         System.exit(0);
     }
+    
+    private void datenbl_speichern (ActionEvent evt)
+    {
+        String ID = JOptionPane.showInputDialog(null,
+                "Zum Speichern, Patienten ID eingeben",
+                "Eingabeaufforderung",
+                JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null,
+            Anwendung.AnamnesebogenSpeichernAlsText(Integer.parseInt(ID)),
+            "Anamnesebogen gespeichert!",                        
+            JOptionPane.WARNING_MESSAGE); 
+    }
+    
+    private void anam_speichern (ActionEvent evt)
+    {
+        String ID = JOptionPane.showInputDialog(null,
+                "Zum Speichern, Pateinten ID eingeben",
+                "Eingabeaufforderung",
+                JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null,
+            Anwendung.DatenblattSpeichernAlsText(Integer.parseInt(ID)),
+            "Datenblatt gespeichert!",                        
+            JOptionPane.WARNING_MESSAGE); 
+    }
 
     //Method for Patient suchen (ID) from menuTools 
-    private void Pat_suchen_ID (ActionEvent evt) {
-        //TODO
+    private void Pat_suchen_ID (ActionEvent evt) 
+    {
+        String ID = JOptionPane.showInputDialog(null,
+                "Pateinten ID eingeben",
+                "Eingabeaufforderung",
+                JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null,
+            Anwendung.PatientSuchenID(Integer.parseInt(ID)),
+            "Patienten Information",                        
+            JOptionPane.WARNING_MESSAGE);
     }
 
     //Method for Pateint suchen (Name) from menuTools 
-    private void Pat_suchen_Name (ActionEvent evt) {
-        //TODO
+    private void Pat_suchen_Name (ActionEvent evt) 
+    {
+        String nName = JOptionPane.showInputDialog(null,
+                "Pateinten Name eingeben",
+                "Eingabeaufforderung",
+                JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null,
+            Anwendung.PatientSuchenNamen(nName),
+            "Patienten Information",                        
+            JOptionPane.WARNING_MESSAGE);  
     }
 
     //Method for Pateint loeschen from menuTools 
     private void Pat_loeschen (ActionEvent evt) {
-        //TODO
+        String ID = JOptionPane.showInputDialog(null,
+                "Pateinten ID eingeben",
+                "Eingabeaufforderung",
+                JOptionPane.PLAIN_MESSAGE);
+        Anwendung.PatientLoeschen(Integer.parseInt(ID)) ;                                                               
+        JOptionPane.showMessageDialog(null,
+            "Patient aus der Liste gelöscht!",
+            "Information",                        
+            JOptionPane.WARNING_MESSAGE);
     }
 
     //Method for Liste ausgeben from menuTools 
     private void Liste_ausgeben (ActionEvent evt) {
-        //TODO
+
+        JOptionPane.showMessageDialog(null,
+            "",
+            "Information",                        
+            JOptionPane.WARNING_MESSAGE);
     }
 
     //Method for Langzeitliste ausgeben from menuTools 
-    private void langliste_ausgeben (ActionEvent evt) {
-        //TODO
+    private void langliste_ausgeben (ActionEvent evt) 
+    {
+        JOptionPane.showMessageDialog(null,
+            Anwendung.LangzeitlisteAusgeben(),
+            "Information",                        
+            JOptionPane.WARNING_MESSAGE);
     }
 
     //Method for Anamnesebogen ausgeben from menuTools 
-    private void anam_ausgeben (ActionEvent evt) {
-        //TODO
+    private void anam_ausgeben (ActionEvent evt) 
+    {
+        String ID = JOptionPane.showInputDialog(null,
+                "Pateinten ID eingeben",
+                "Eingabeaufforderung",
+                JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null,
+            Anwendung.AnamnesebogenAusgeben(Integer.parseInt(ID)),
+            "Patienten Anamnesebogen",                        
+            JOptionPane.WARNING_MESSAGE); 
     }
 
     //Method for Datenblatt ausgeben from menuTools 
-    private void Datenbl_ausgeben (ActionEvent evt) {
-        //TODO
+    private void Datenbl_ausgeben (ActionEvent evt) 
+    {
+
+        String ID = JOptionPane.showInputDialog(null,
+                "Pateinten ID eingeben",
+                "Eingabeaufforderung",
+                JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null,
+            Anwendung.DatenblattAusgeben(Integer.parseInt(ID)),
+            "Patienten Anamnesebogen",                        
+            JOptionPane.WARNING_MESSAGE); 
     }
 
     public static void main(String[] args){
