@@ -84,7 +84,7 @@ public class Oberflaeche extends JFrame {
         Anam_speichern.setEnabled(true);
         Anam_speichern.setFont(new Font("sansserif",0,12));
         Anam_speichern.setText("Speichern");
-        Anam_speichern.setVisible(true);
+        Anam_speichern.setVisible(false);
         //Set action for button click
         //Call defined method
         Anam_speichern.addActionListener(new ActionListener() {
@@ -279,7 +279,7 @@ public class Oberflaeche extends JFrame {
         RR.setEnabled(true);
         RR.setFont(new Font("sansserif",0,12));
         RR.setText("RR Sys");
-        RR.setVisible(true);
+        RR.setVisible(false);
 
         Tag = new JComboBox();
         Tag.setBounds(268,176,60,35);
@@ -356,7 +356,7 @@ public class Oberflaeche extends JFrame {
         anamnese.setFont(new Font("sansserif",0,12));
         anamnese.setText("");
         anamnese.setBorder(BorderFactory.createBevelBorder(1));
-        anamnese.setVisible(true);
+        anamnese.setVisible(false);
 
         aufn_diagnose = new JTextArea();
         aufn_diagnose.setBounds(270,420,250,80);
@@ -375,7 +375,7 @@ public class Oberflaeche extends JFrame {
         bz.setEnabled(true);
         bz.setFont(new Font("sansserif",0,12));
         bz.setText("BZ");
-        bz.setVisible(true);
+        bz.setVisible(false);
 
         c = new JComboBox();
         c.setBounds(386,120,90,35);
@@ -498,7 +498,7 @@ public class Oberflaeche extends JFrame {
         label7.setEnabled(true);
         label7.setFont(new Font("sansserif",0,12));
         label7.setText("Anamnesebogen");
-        label7.setVisible(true);
+        label7.setVisible(false);
 
         label8 = new JLabel();
         label8.setBounds(610,200,90,35);
@@ -507,7 +507,7 @@ public class Oberflaeche extends JFrame {
         label8.setEnabled(true);
         label8.setFont(new Font("sansserif",0,12));
         label8.setText("Anamnese");
-        label8.setVisible(true);
+        label8.setVisible(false);
 
         label9 = new JLabel();
         label9.setBounds(610,390,120,35);
@@ -516,7 +516,7 @@ public class Oberflaeche extends JFrame {
         label9.setEnabled(true);
         label9.setFont(new Font("sansserif",0,12));
         label9.setText("Weiterbehandlung");
-        label9.setVisible(true);
+        label9.setVisible(false);
 
         medis = new JTextField();
         medis.setBounds(270,360,150,35);
@@ -534,7 +534,7 @@ public class Oberflaeche extends JFrame {
         pat_id.setEnabled(true);
         pat_id.setFont(new Font("sansserif",0,12));
         pat_id.setText("Patienten ID");
-        pat_id.setVisible(true);
+        pat_id.setVisible(false);
 
         puls = new JTextField();
         puls.setBounds(610,120,90,35);
@@ -543,7 +543,7 @@ public class Oberflaeche extends JFrame {
         puls.setEnabled(true);
         puls.setFont(new Font("sansserif",0,12));
         puls.setText("Puls");
-        puls.setVisible(true);
+        puls.setVisible(false);
 
         spo2 = new JTextField();
         spo2.setBounds(720,120,90,35);
@@ -552,7 +552,7 @@ public class Oberflaeche extends JFrame {
         spo2.setEnabled(true);
         spo2.setFont(new Font("sansserif",0,12));
         spo2.setText("SpO2");
-        spo2.setVisible(true);
+        spo2.setVisible(false);
 
         strasse = new JTextField();
         strasse.setBounds(270,255,150,35);
@@ -579,7 +579,7 @@ public class Oberflaeche extends JFrame {
         temp.setEnabled(true);
         temp.setFont(new Font("sansserif",0,12));
         temp.setText("Temp.");
-        temp.setVisible(true);
+        temp.setVisible(false);
 
         vorerkr = new JTextField();
         vorerkr.setBounds(270,325,150,35);
@@ -597,7 +597,7 @@ public class Oberflaeche extends JFrame {
         weiterbehand.setEnabled(true);
         weiterbehand.setFont(new Font("sansserif",0,12));
         weiterbehand.setText("");
-        weiterbehand.setVisible(true);
+        weiterbehand.setVisible(false);
 
         wohnort = new JTextField();
         wohnort.setBounds(370,290,110,35);
@@ -671,7 +671,18 @@ public class Oberflaeche extends JFrame {
     }
     
     private void Anam_speichern (ActionEvent evt){
-        //TODO
+        label7.setVisible(false);
+        label8.setVisible(false);
+        label9.setVisible(false);
+        temp.setVisible(false);
+        weiterbehand.setVisible(false);
+        pat_id.setVisible(false);
+        puls.setVisible(false);
+        spo2.setVisible(false);
+        RR.setVisible(false);
+        anamnese.setVisible(false);
+        bz.setVisible(false);
+        Anam_speichern.setVisible(false);
     }
 
 
@@ -713,8 +724,20 @@ public class Oberflaeche extends JFrame {
     }
 
     //Method actionPerformed for Pat_aufrufen
-    private void Pat_aufrufen (ActionEvent evt) {
-        //TODO
+    private void Pat_aufrufen (ActionEvent evt)
+    {
+        label7.setVisible(true);
+        label8.setVisible(true);
+        label9.setVisible(true);
+        temp.setVisible(true);
+        weiterbehand.setVisible(true);
+        pat_id.setVisible(true);
+        puls.setVisible(true);
+        spo2.setVisible(true);
+        RR.setVisible(true);
+        anamnese.setVisible(true);
+        bz.setVisible(true);
+        Anam_speichern.setVisible(true);
     }
 
     //Method actionPerformed for Pat_entlassen
