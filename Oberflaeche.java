@@ -90,8 +90,8 @@ public class Oberflaeche extends JFrame {
         Anam_speichern.setVisible(false);
         //Set action for button click
         //Call defined method
-        Anam_speichern.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent evt) {
+        Anam_speichern.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent evt){
                     Anam_speichern(evt);
                 }
             });
@@ -367,7 +367,7 @@ public class Oberflaeche extends JFrame {
         RR.setVisible(false);
         RR.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e){
-                    if(RR.getText().equals("RR"))
+                    if(RR.getText().equals("RR Sys"))
                         RR.setText("");
                     else;
                 }
@@ -772,7 +772,7 @@ public class Oberflaeche extends JFrame {
         vorerkr.setForeground(new Color(0,0,0));
         vorerkr.setEnabled(true);
         vorerkr.setFont(new Font("sansserif",0,12));
-        vorerkr.setText("Vorerkankungen");
+        vorerkr.setText("Vorerkrankungen");
         vorerkr.setVisible(false);
         vorerkr.addMouseListener(new MouseAdapter(){
                 public void mouseClicked(MouseEvent e){
@@ -790,6 +790,7 @@ public class Oberflaeche extends JFrame {
         weiterbehand.setFont(new Font("sansserif",0,12));
         weiterbehand.setText("");
         weiterbehand.setVisible(false);
+        
 
         wohnort = new JTextField();
         wohnort.setBounds(370,290,110,35);
@@ -861,7 +862,6 @@ public class Oberflaeche extends JFrame {
         this.setVisible(true);
     }
 
-    //Method actionPerformed for Anam_speichern
     private void notfall_endgueltig_auf (ActionEvent evt) 
     {
         Patient p;
@@ -872,7 +872,7 @@ public class Oberflaeche extends JFrame {
         anwendung.NotfallPatientAufnehmen(Name.getText(),Vorname.getText(),Infektionsverdacht.isSelected());
         anwendung.Priorisieren("rot",p);
         akt_Pat_List.setText("");
-        akt_Pat_List.setText(anwendung.ListenAusgeben());
+        akt_Pat_List.setText(java.util.Arrays.toString(anwendung.ListenAusgeben()));
         Name.setVisible(false);
         Vorname.setVisible(false);
         Infektionsverdacht.setVisible(false);
@@ -882,11 +882,12 @@ public class Oberflaeche extends JFrame {
         Infektionsverdacht.setSelected(false);
     }
 
+    //Method actionPerformed for Anam_speichern
     private void Anam_speichern (ActionEvent evt){
-        anwendung.AnamnesebogenAusfuellen(Integer.parseInt(pat_id.getText()),anamnese.getText(),Integer.parseInt(RR.getText()),Integer.parseInt(puls.getText()),Double.parseDouble(temp.getText()),Integer.parseInt(spo2.getText()),Integer.parseInt(bz.getText()),weiterbehand.getText());
+        try{anwendung.AnamnesebogenAusfuellen(Integer.parseInt(pat_id.getText()),anamnese.getText(),Integer.parseInt(RR.getText()),Integer.parseInt(puls.getText()),Double.parseDouble(temp.getText()),Integer.parseInt(spo2.getText()),Integer.parseInt(bz.getText()),weiterbehand.getText());
         anwendung.Entlassung(Integer.parseInt(pat_id.getText()),weiterbehand.getText());
         akt_Pat_List.setText("");
-        akt_Pat_List.setText(anwendung.ListenAusgeben());
+        akt_Pat_List.setText(java.util.Arrays.toString(anwendung.ListenAusgeben()));
         label7.setVisible(false);
         label8.setVisible(false);
         label9.setVisible(false);
@@ -906,6 +907,14 @@ public class Oberflaeche extends JFrame {
         anamnese.setText("");
         pat_id.setText("Patineten ID");
         weiterbehand.setText("");
+    }
+        catch (Exception e)
+        {
+          JOptionPane.showMessageDialog(null,
+            "Uups, da ist wohl etwas schief gelaufen :/",
+            "Error 40",                        
+            JOptionPane.WARNING_MESSAGE);  
+        }
 
     }
 
@@ -944,6 +953,7 @@ public class Oberflaeche extends JFrame {
         label3.setVisible(true);
         label4.setVisible(true);
         label5.setVisible(true);
+        tel_nr.setVisible(true);
     }
 
     //Method actionPerformed for Pat_aufrufen
@@ -999,7 +1009,7 @@ public class Oberflaeche extends JFrame {
             vorerkr.getText(),medis.getText(),allergien.getText(),aufn_diagnose.getText(),hausarzt.getText()); 
         anwendung.Priorisieren(farbe,p);
         akt_Pat_List.setText("");
-        akt_Pat_List.setText(anwendung.ListenAusgeben());
+        akt_Pat_List.setText(java.util.Arrays.toString(anwendung.ListenAusgeben()));
         Name.setVisible(false);
         Vorname.setVisible(false);
         Infektionsverdacht.setVisible(false);
@@ -1024,6 +1034,7 @@ public class Oberflaeche extends JFrame {
         label3.setVisible(false);
         label4.setVisible(false);
         label5.setVisible(false);
+        tel_nr.setVisible(false);
         Name.setText("Name");
         Vorname.setText("Vorname");
         Infektionsverdacht.setSelected(false);
@@ -1042,6 +1053,7 @@ public class Oberflaeche extends JFrame {
         medis.setText("Medikamente");
         hausarzt.setText("Hausarzt");
         aufn_diagnose.setText("Aufnahmediagnose");
+        tel_nr.setText("Tel. Nr.");
     }
 
     //method for generate menu
@@ -1229,7 +1241,7 @@ public class Oberflaeche extends JFrame {
     private void Liste_ausgeben (ActionEvent evt) {
 
         JOptionPane.showMessageDialog(null,
-            "",
+            anwendung.ListenAusgeben(),
             "Information",                        
             JOptionPane.WARNING_MESSAGE);
     }
