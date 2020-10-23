@@ -907,6 +907,7 @@ public class Oberflaeche extends JFrame {
         anamnese.setText("");
         pat_id.setText("Patineten ID");
         weiterbehand.setText("");
+        bz.setText("BZ");
     }
         catch (Exception e)
         {
