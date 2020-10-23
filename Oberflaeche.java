@@ -63,10 +63,12 @@ public class Oberflaeche extends JFrame {
     private JTextField weiterbehand;
     private JTextField wohnort;
     private JButton notfall_endgueltig_auf;
+    private Anwendung anwendung;
 
     //Constructor 
     public Oberflaeche(){
 
+       anwendung = new Anwendung();
         this.setTitle("KKH Patienten-Verwaltung");
         this.setSize(996,523);
         //menu generate method
@@ -881,10 +883,15 @@ public class Oberflaeche extends JFrame {
     //Method actionPerformed for Anam_speichern
     private void notfall_endgueltig_auf (ActionEvent evt) 
     {
-        Anwendung.NotfallPatientAufnehmen(Name.getText(),Vorname.getText(),Infektionsverdacht.isSelected());
-        Anwendung.Priorisieren("rot",p);
+        Patient p;
+        String name = Name.getText();
+        String vorname = Vorname.getText();
+        boolean infektionsverdacht = Infektionsverdacht.isSelected();
+        p=new Patient(name, vorname, infektionsverdacht);
+        anwendung.NotfallPatientAufnehmen(Name.getText(),Vorname.getText(),Infektionsverdacht.isSelected());
+        anwendung.Priorisieren("rot",p);
         akt_Pat_List.setText("");
-        akt_Pat_List.setText(Anwendung.ListenAusgeben());
+        akt_Pat_List.setText(anwendung.ListenAusgeben());
         Name.setVisible(false);
         Vorname.setVisible(false);
         Infektionsverdacht.setVisible(false);
@@ -895,10 +902,10 @@ public class Oberflaeche extends JFrame {
     }
 
     private void Anam_speichern (ActionEvent evt){
-        Anwendung.AnamnesebogenAusfuellen(Integer.parseInt(pat_id.getText()),anamnese.getText(),Integer.parseInt(RR.getText()),Integer.parseInt(puls.getText()),Double.parseDouble(temp.getText()),Integer.parseInt(spo2.getText()),Integer.parseInt(bz.getText()),weiterbehand.getText());
-        Anwendung.Entlassung(Integer.parseInt(pat_id.getText()),weiterbehand.getText());
+        anwendung.AnamnesebogenAusfuellen(Integer.parseInt(pat_id.getText()),anamnese.getText(),Integer.parseInt(RR.getText()),Integer.parseInt(puls.getText()),Double.parseDouble(temp.getText()),Integer.parseInt(spo2.getText()),Integer.parseInt(bz.getText()),weiterbehand.getText());
+        anwendung.Entlassung(Integer.parseInt(pat_id.getText()),weiterbehand.getText());
         akt_Pat_List.setText("");
-        akt_Pat_List.setText(Anwendung.ListenAusgeben());
+        akt_Pat_List.setText(anwendung.ListenAusgeben());
         label7.setVisible(false);
         label8.setVisible(false);
         label9.setVisible(false);
@@ -973,7 +980,7 @@ public class Oberflaeche extends JFrame {
         anamnese.setVisible(true);
         bz.setVisible(true);
         Anam_speichern.setVisible(true);
-        Anwendung.PatientenAufruf();
+        anwendung.PatientenAufruf();
     }
 
     //Method actionPerformed for Pat_entlassen
@@ -984,10 +991,34 @@ public class Oberflaeche extends JFrame {
 
     //Method actionPerformed for end_aufnehmen
     private void endgueltig_aufnehmen (ActionEvent evt) {
-        Anwendung.PatientAufnehmen(Name.getText(),Vorname.getText(),String.valueOf(c.getSelectedItem()),Infektionsverdacht.isSelected(),Geschlecht.getSelectedItem().toString().charAt(0),Integer.parseInt(Jahr.getSelectedItem().toString()),Integer.parseInt(Monat.getSelectedItem().toString()),Integer.parseInt(Tag.getSelectedItem().toString()),gbort.getText(),strasse.getText(),Integer.parseInt(Hausnummer.getText()),Integer.parseInt(PLZ.getText()),wohnort.getText(),Integer.parseInt(tel_nr.getText()),vorerkr.getText(),medis.getText(),allergien.getText(),aufn_diagnose.getText(),hausarzt.getText()); 
-        Anwendung.Priorisieren(Patient.getFarbe(),p);
+        Patient p;
+        String name = Name.getText();
+        String vorname = Vorname.getText();
+        String farbe = String.valueOf(c.getSelectedItem());
+        boolean infektionsverdacht = Infektionsverdacht.isSelected();
+        String geschlecht = Geschlecht.getSelectedItem().toString();
+        int jahr = Integer.parseInt(Jahr.getSelectedItem().toString());
+        int monat = Integer.parseInt(Monat.getSelectedItem().toString());
+        int tag = Integer.parseInt(Tag.getSelectedItem().toString());
+        String Gbort = gbort.getText();
+        int Strasse = Integer.parseInt(Hausnummer.getText());
+        int plz = Integer.parseInt(PLZ.getText());
+        String Wohnort = wohnort.getText();
+        int Tel_Nr = Integer.parseInt(tel_nr.getText());
+        String Vorerkr = vorerkr.getText();
+        String Medis = medis.getText();
+        String Allergien = allergien.getText();
+        String Aufn_diagnose = aufn_diagnose.getText();
+        String Hausarzt = hausarzt.getText();
+        p = new Patient(name, vorname, infektionsverdacht, farbe);
+        anwendung.PatientAufnehmen(Name.getText(),Vorname.getText(),String.valueOf(c.getSelectedItem()),Infektionsverdacht.isSelected(),
+        Geschlecht.getSelectedItem().toString().charAt(0),Integer.parseInt(Jahr.getSelectedItem().toString()),
+        Integer.parseInt(Monat.getSelectedItem().toString()),Integer.parseInt(Tag.getSelectedItem().toString()),gbort.getText(),
+        strasse.getText(),Integer.parseInt(Hausnummer.getText()),Integer.parseInt(PLZ.getText()),wohnort.getText(),Integer.parseInt(tel_nr.getText()),
+        vorerkr.getText(),medis.getText(),allergien.getText(),aufn_diagnose.getText(),hausarzt.getText()); 
+        anwendung.Priorisieren(farbe,p);
         akt_Pat_List.setText("");
-        akt_Pat_List.setText(Anwendung.ListenAusgeben());
+        akt_Pat_List.setText(anwendung.ListenAusgeben());
         Name.setVisible(false);
         Vorname.setVisible(false);
         Infektionsverdacht.setVisible(false);
@@ -1158,7 +1189,7 @@ public class Oberflaeche extends JFrame {
                 "Eingabeaufforderung",
                 JOptionPane.PLAIN_MESSAGE);
         JOptionPane.showMessageDialog(null,
-            Anwendung.AnamnesebogenSpeichernAlsText(Integer.parseInt(ID)),
+            anwendung.AnamnesebogenSpeichernAlsText(Integer.parseInt(ID)),
             "Anamnesebogen gespeichert!",                        
             JOptionPane.WARNING_MESSAGE); 
     }
@@ -1170,7 +1201,7 @@ public class Oberflaeche extends JFrame {
                 "Eingabeaufforderung",
                 JOptionPane.PLAIN_MESSAGE);
         JOptionPane.showMessageDialog(null,
-            Anwendung.DatenblattSpeichernAlsText(Integer.parseInt(ID)),
+            anwendung.DatenblattSpeichernAlsText(Integer.parseInt(ID)),
             "Datenblatt gespeichert!",                        
             JOptionPane.WARNING_MESSAGE); 
     }
@@ -1183,7 +1214,7 @@ public class Oberflaeche extends JFrame {
                 "Eingabeaufforderung",
                 JOptionPane.PLAIN_MESSAGE);
         JOptionPane.showMessageDialog(null,
-            Anwendung.PatientSuchenID(Integer.parseInt(ID)),
+            anwendung.PatientSuchenID(Integer.parseInt(ID)),
             "Patienten Information",                        
             JOptionPane.WARNING_MESSAGE);
     }
@@ -1196,7 +1227,7 @@ public class Oberflaeche extends JFrame {
                 "Eingabeaufforderung",
                 JOptionPane.PLAIN_MESSAGE);
         JOptionPane.showMessageDialog(null,
-            Anwendung.PatientSuchenNamen(nName),
+            anwendung.PatientSuchenNamen(nName),
             "Patienten Information",                        
             JOptionPane.WARNING_MESSAGE);  
     }
@@ -1207,7 +1238,7 @@ public class Oberflaeche extends JFrame {
                 "Pateinten ID eingeben",
                 "Eingabeaufforderung",
                 JOptionPane.PLAIN_MESSAGE);
-        Anwendung.PatientLoeschen(Integer.parseInt(ID)) ;                                                               
+        anwendung.PatientLoeschen(Integer.parseInt(ID)) ;                                                               
         JOptionPane.showMessageDialog(null,
             "Patient aus der Liste gelöscht!",
             "Information",                        
@@ -1227,7 +1258,7 @@ public class Oberflaeche extends JFrame {
     private void langliste_ausgeben (ActionEvent evt) 
     {
         JOptionPane.showMessageDialog(null,
-            Anwendung.LangzeitlisteAusgeben(),
+            anwendung.LangzeitlisteAusgeben(),
             "Information",                        
             JOptionPane.WARNING_MESSAGE);
     }
@@ -1240,7 +1271,7 @@ public class Oberflaeche extends JFrame {
                 "Eingabeaufforderung",
                 JOptionPane.PLAIN_MESSAGE);
         JOptionPane.showMessageDialog(null,
-            Anwendung.AnamnesebogenAusgeben(Integer.parseInt(ID)),
+            anwendung.AnamnesebogenAusgeben(Integer.parseInt(ID)),
             "Patienten Anamnesebogen",                        
             JOptionPane.WARNING_MESSAGE); 
     }
@@ -1254,7 +1285,7 @@ public class Oberflaeche extends JFrame {
                 "Eingabeaufforderung",
                 JOptionPane.PLAIN_MESSAGE);
         JOptionPane.showMessageDialog(null,
-            Anwendung.DatenblattAusgeben(Integer.parseInt(ID)),
+            anwendung.DatenblattAusgeben(Integer.parseInt(ID)),
             "Patienten Anamnesebogen",                        
             JOptionPane.WARNING_MESSAGE); 
     }

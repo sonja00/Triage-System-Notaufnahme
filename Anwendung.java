@@ -77,7 +77,7 @@ public class Anwendung
      * Behandlungsbedarfs)auf die entsprechendfarbige Warteliste zu setzen.
      * @param Farbe, p
      */
-    private void Priorisieren(String Farbe, Patient p)
+    public void Priorisieren(String Farbe, Patient p)
     {
         if(Farbe.equals("rot"))
         {

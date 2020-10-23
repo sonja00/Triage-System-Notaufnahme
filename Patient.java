@@ -54,7 +54,7 @@ public class Patient extends Person
         Datenbl = new Datenblatt (Name, Vorname,PatientenID);
         AnBogen = new Anamnesebogen(Name,Vorname, PatientenID);
     }
-
+ 
     /**
      * Eine Methode um die jeweilige Uhrzeit zu erzeugen.
      * @return Uhrzeit
