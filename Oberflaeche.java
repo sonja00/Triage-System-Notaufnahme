@@ -68,7 +68,7 @@ public class Oberflaeche extends JFrame {
     //Constructor 
     public Oberflaeche(){
 
-       anwendung = new Anwendung();
+        anwendung = new Anwendung();
         this.setTitle("KKH Patienten-Verwaltung");
         this.setSize(996,523);
         //menu generate method
@@ -115,12 +115,12 @@ public class Oberflaeche extends JFrame {
         Hausnummer.setText("Nr.");
         Hausnummer.setVisible(false);
         Hausnummer.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(Hausnummer.getText().equals("Nr."))
-                Hausnummer.setText("");
-                else;
-            }
-        });
+                public void mouseClicked(MouseEvent e){
+                    if(Hausnummer.getText().equals("Nr."))
+                        Hausnummer.setText("");
+                    else;
+                }
+            });
 
         Infektionsverdacht = new JCheckBox();
         Infektionsverdacht.setBounds(390,23,150,35);
@@ -270,12 +270,12 @@ public class Oberflaeche extends JFrame {
         Name.setText("Name");
         Name.setVisible(false);
         Name.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(Name.getText().equals("Name"))
-                Name.setText("");
-                else;
-            }
-        });
+                public void mouseClicked(MouseEvent e){
+                    if(Name.getText().equals("Name"))
+                        Name.setText("");
+                    else;
+                }
+            });
 
         Not_aufnehmen = new JButton();
         Not_aufnehmen.setBounds(22,211,150,35);
@@ -302,13 +302,12 @@ public class Oberflaeche extends JFrame {
         PLZ.setText("PLZ");
         PLZ.setVisible(false);
         PLZ.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(PLZ.getText().equals("PLZ"))
-                PLZ.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(PLZ.getText().equals("PLZ"))
+                        PLZ.setText("");
+                    else;
+                }
+            });
 
         Pat_aufnehmen = new JButton();
         Pat_aufnehmen.setBounds(22,176,150,35);
@@ -367,13 +366,12 @@ public class Oberflaeche extends JFrame {
         RR.setText("RR Sys");
         RR.setVisible(false);
         RR.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(RR.getText().equals("RR"))
-                RR.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(RR.getText().equals("RR"))
+                        RR.setText("");
+                    else;
+                }
+            });
 
         Tag = new JComboBox();
         Tag.setBounds(268,176,60,35);
@@ -423,13 +421,12 @@ public class Oberflaeche extends JFrame {
         Vorname.setText("Vorname");
         Vorname.setVisible(false);
         Vorname.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(Vorname.getText().equals("Vorname"))
-                Vorname.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(Vorname.getText().equals("Vorname"))
+                        Vorname.setText("");
+                    else;
+                }
+            });
 
         akt_Pat_List = new JTextArea();
         akt_Pat_List.setBounds(22,50,200,120);
@@ -451,13 +448,12 @@ public class Oberflaeche extends JFrame {
         allergien.setText("Allergien");
         allergien.setVisible(false);
         allergien.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(allergien.getText().equals("Allergien"))
-                allergien.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(allergien.getText().equals("Allergien"))
+                        allergien.setText("");
+                    else;
+                }
+            });
 
         anamnese = new JTextArea();
         anamnese.setBounds(610,229,311,159);
@@ -468,8 +464,6 @@ public class Oberflaeche extends JFrame {
         anamnese.setText("");
         anamnese.setBorder(BorderFactory.createBevelBorder(1));
         anamnese.setVisible(false);
-        
-        
 
 
         aufn_diagnose = new JTextArea();
@@ -482,13 +476,12 @@ public class Oberflaeche extends JFrame {
         aufn_diagnose.setBorder(BorderFactory.createBevelBorder(1));
         aufn_diagnose.setVisible(false);
         aufn_diagnose.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(aufn_diagnose.getText().equals("Aufnahmediagnose"))
-                aufn_diagnose.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(aufn_diagnose.getText().equals("Aufnahmediagnose"))
+                        aufn_diagnose.setText("");
+                    else;
+                }
+            });
 
         bz = new JTextField();
         bz.setBounds(720,155,90,35);
@@ -499,13 +492,12 @@ public class Oberflaeche extends JFrame {
         bz.setText("BZ");
         bz.setVisible(false);
         bz.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(bz.getText().equals("BZ"))
-                bz.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(bz.getText().equals("BZ"))
+                        bz.setText("");
+                    else;
+                }
+            });
 
         c = new JComboBox();
         c.setBounds(386,120,90,35);
@@ -558,13 +550,12 @@ public class Oberflaeche extends JFrame {
         gbort.setText("Geburtsort");
         gbort.setVisible(false);
         gbort.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(gbort.getText().equals("Geburtsort"))
-                gbort.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(gbort.getText().equals("Geburtsort"))
+                        gbort.setText("");
+                    else;
+                }
+            });
 
         hausarzt = new JTextField();
         hausarzt.setBounds(430,360,90,35);
@@ -575,13 +566,12 @@ public class Oberflaeche extends JFrame {
         hausarzt.setText("Hausarzt");
         hausarzt.setVisible(false);
         hausarzt.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(hausarzt.getText().equals("Hausarzt"))
-                hausarzt.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(hausarzt.getText().equals("Hausarzt"))
+                        hausarzt.setText("");
+                    else;
+                }
+            });
 
         label1 = new JLabel();
         label1.setBounds(270,149,50,35);
@@ -673,13 +663,12 @@ public class Oberflaeche extends JFrame {
         medis.setText("Medikamente");
         medis.setVisible(false);
         medis.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(medis.getText().equals("Medikamente"))
-                medis.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(medis.getText().equals("Medikamente"))
+                        medis.setText("");
+                    else;
+                }
+            });
 
         pat_id = new JTextField();
         pat_id.setBounds(610,50,120,35);
@@ -690,13 +679,12 @@ public class Oberflaeche extends JFrame {
         pat_id.setText("Patienten ID");
         pat_id.setVisible(false);
         pat_id.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(pat_id.getText().equals("Patienten ID"))
-                pat_id.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(pat_id.getText().equals("Patienten ID"))
+                        pat_id.setText("");
+                    else;
+                }
+            });
 
         puls = new JTextField();
         puls.setBounds(610,120,90,35);
@@ -707,13 +695,12 @@ public class Oberflaeche extends JFrame {
         puls.setText("Puls");
         puls.setVisible(false);
         puls.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(puls.getText().equals("Puls"))
-                puls.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(puls.getText().equals("Puls"))
+                        puls.setText("");
+                    else;
+                }
+            });
 
         spo2 = new JTextField();
         spo2.setBounds(720,120,90,35);
@@ -724,13 +711,12 @@ public class Oberflaeche extends JFrame {
         spo2.setText("SpO2");
         spo2.setVisible(false);
         spo2.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(spo2.getText().equals("SpO2"))
-                spo2.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(spo2.getText().equals("SpO2"))
+                        spo2.setText("");
+                    else;
+                }
+            });
 
         strasse = new JTextField();
         strasse.setBounds(270,255,150,35);
@@ -741,13 +727,12 @@ public class Oberflaeche extends JFrame {
         strasse.setText("Strasse");
         strasse.setVisible(false);
         strasse.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(strasse.getText().equals("Strasse"))
-                strasse.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(strasse.getText().equals("Strasse"))
+                        strasse.setText("");
+                    else;
+                }
+            });
 
         tel_nr = new JTextField();
         tel_nr.setBounds(390,65,90,35);
@@ -758,13 +743,12 @@ public class Oberflaeche extends JFrame {
         tel_nr.setText("Tel. Nr.");
         tel_nr.setVisible(false);
         tel_nr.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(tel_nr.getText().equals("Tel. Nr."))
-                tel_nr.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(tel_nr.getText().equals("Tel. Nr."))
+                        tel_nr.setText("");
+                    else;
+                }
+            });
 
         temp = new JTextField();
         temp.setBounds(610,155,90,35);
@@ -775,13 +759,12 @@ public class Oberflaeche extends JFrame {
         temp.setText("Temp.");
         temp.setVisible(false);
         temp.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(temp.getText().equals("Temp."))
-                temp.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(temp.getText().equals("Temp."))
+                        temp.setText("");
+                    else;
+                }
+            });
 
         vorerkr = new JTextField();
         vorerkr.setBounds(270,325,150,35);
@@ -792,13 +775,12 @@ public class Oberflaeche extends JFrame {
         vorerkr.setText("Vorerkankungen");
         vorerkr.setVisible(false);
         vorerkr.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(vorerkr.getText().equals("Vorerkrankungen"))
-                vorerkr.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(vorerkr.getText().equals("Vorerkrankungen"))
+                        vorerkr.setText("");
+                    else;
+                }
+            });
 
         weiterbehand = new JTextField();
         weiterbehand.setBounds(610,420,150,35);
@@ -818,13 +800,12 @@ public class Oberflaeche extends JFrame {
         wohnort.setText("Wohnort");
         wohnort.setVisible(false);
         wohnort.addMouseListener(new MouseAdapter(){
-        public void mouseClicked(MouseEvent e){
-                if(wohnort.getText().equals("Wohnort"))
-                wohnort.setText("");
-                else;
-            }
-        });
-
+                public void mouseClicked(MouseEvent e){
+                    if(wohnort.getText().equals("Wohnort"))
+                        wohnort.setText("");
+                    else;
+                }
+            });
 
         //adding components to contentPane panel
         contentPane.add(Anam_speichern);
@@ -925,7 +906,7 @@ public class Oberflaeche extends JFrame {
         anamnese.setText("");
         pat_id.setText("Patineten ID");
         weiterbehand.setText("");
-        
+
     }
 
     //Method actionPerformed for Not_aufnehmen
@@ -1012,10 +993,10 @@ public class Oberflaeche extends JFrame {
         String Hausarzt = hausarzt.getText();
         p = new Patient(name, vorname, infektionsverdacht, farbe);
         anwendung.PatientAufnehmen(Name.getText(),Vorname.getText(),String.valueOf(c.getSelectedItem()),Infektionsverdacht.isSelected(),
-        Geschlecht.getSelectedItem().toString().charAt(0),Integer.parseInt(Jahr.getSelectedItem().toString()),
-        Integer.parseInt(Monat.getSelectedItem().toString()),Integer.parseInt(Tag.getSelectedItem().toString()),gbort.getText(),
-        strasse.getText(),Integer.parseInt(Hausnummer.getText()),Integer.parseInt(PLZ.getText()),wohnort.getText(),Integer.parseInt(tel_nr.getText()),
-        vorerkr.getText(),medis.getText(),allergien.getText(),aufn_diagnose.getText(),hausarzt.getText()); 
+            Geschlecht.getSelectedItem().toString().charAt(0),Integer.parseInt(Jahr.getSelectedItem().toString()),
+            Integer.parseInt(Monat.getSelectedItem().toString()),Integer.parseInt(Tag.getSelectedItem().toString()),gbort.getText(),
+            strasse.getText(),Integer.parseInt(Hausnummer.getText()),Integer.parseInt(PLZ.getText()),wohnort.getText(),Integer.parseInt(tel_nr.getText()),
+            vorerkr.getText(),medis.getText(),allergien.getText(),aufn_diagnose.getText(),hausarzt.getText()); 
         anwendung.Priorisieren(farbe,p);
         akt_Pat_List.setText("");
         akt_Pat_List.setText(anwendung.ListenAusgeben());
@@ -1153,12 +1134,11 @@ public class Oberflaeche extends JFrame {
                 }
             });
         anamnesebogen_speichern.addActionListener(new ActionListener()  
-        {
-           public void actionPerformed(ActionEvent evt) {
+            {
+                public void actionPerformed(ActionEvent evt) {
                     anam_speichern(evt);
-              }
+                }
             });
-
 
 
         file.add(beenden);
@@ -1181,7 +1161,7 @@ public class Oberflaeche extends JFrame {
     private void beenden (ActionEvent evt) {
         System.exit(0);
     }
-    
+
     private void datenbl_speichern (ActionEvent evt)
     {
         String ID = JOptionPane.showInputDialog(null,
@@ -1193,7 +1173,7 @@ public class Oberflaeche extends JFrame {
             "Anamnesebogen gespeichert!",                        
             JOptionPane.WARNING_MESSAGE); 
     }
-    
+
     private void anam_speichern (ActionEvent evt)
     {
         String ID = JOptionPane.showInputDialog(null,
