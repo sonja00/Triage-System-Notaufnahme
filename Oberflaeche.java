@@ -1084,6 +1084,13 @@ public class Oberflaeche extends JFrame {
                     beenden(evt);
                 }
             });
+            
+        programminformationen.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent evt) {
+                systeminfo(evt);
+            }
+          
+        });
 
         //Setings action for menu item
         //Call defined method
@@ -1185,6 +1192,14 @@ public class Oberflaeche extends JFrame {
             anwendung.AnamnesebogenSpeichernAlsText(Integer.parseInt(ID)),
             "Anamnesebogen gespeichert!",                        
             JOptionPane.WARNING_MESSAGE); 
+    }
+    
+    private void systeminfo (ActionEvent evt)
+    {
+        JOptionPane.showMessageDialog(null,
+        "Dieses Programm dient zur Triage innerhalb einer Notaufnahme\n\nPatient aufnehmen: Für Aufnahme der Kategorien grün und gelb (Datenblatt ist komplett auszufüllen)\nNotfall aufnehmen: Für Aufnahme der Kategorie rot (Das Datenballt muss nicht ganz ausgefüllt werden)\nPatient aufrufen: ID zur Auswahl des Patienten und anschließendes Ausfüllen des Anamnesebogens\n\nDieses Programm berücksichtigt die Kategorie des Patienten und ordent ihn dementsprechend in eine Liste ein.\nEs ist möglich Patienten mit Namen oder ID direkt zu suchen, um an deren Informationen zu kommen.\nDesweitern können Patienten entlassen werden, wodruch sie auf eine Langzeitliste gesetzt werden.\nPatienteninformationen wie z.B das Datenblatt oder den Anamnesebogen können von jedem Patienten extren in einem Textdokument gespeichert werden.",
+        "Systeminformation",
+        JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void anam_speichern (ActionEvent evt)
