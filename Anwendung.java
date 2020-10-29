@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * die für das Triagesystem in der Notaufnahem wichtig sind, aufgerufen
  * werden können.
  * 
- * @author (Sonja Unglert, Elena Haas) 
+ * @author (Sonja Unglert, Elena Haas)
  * @version (06.10.2020)
  */
 public class Anwendung
